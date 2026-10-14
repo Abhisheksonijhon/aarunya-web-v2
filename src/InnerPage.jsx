@@ -11,42 +11,42 @@ const services = [
     slug: 'web-development',
     icon: Code2,
     description: 'Responsive business websites, landing pages and web applications.',
-    points: ['Business websites and landing pages', 'Web applications and dashboards', 'Lead-generation experiences', 'Performance and SEO foundations']
+    points: ['Business websites and conversion-focused landing pages', 'Web applications and custom dashboards', 'Lead capture and enquiry workflows', 'Responsive design, technical SEO and performance foundations']
   },
   {
     title: 'Mobile Applications',
     slug: 'mobile-apps',
     icon: Smartphone,
     description: 'Focused mobile experiences designed around customer and team needs.',
-    points: ['MVP planning and prioritisation', 'Customer-facing app experiences', 'API and backend integration', 'Responsive, usable interfaces']
+    points: ['MVP planning and feature prioritisation', 'Customer and team mobile experiences', 'Backend, API and authentication integration', 'Device testing and release-readiness planning']
   },
   {
     title: 'AI & Automation',
     slug: 'ai-automation',
     icon: BrainCircuit,
     description: 'Practical AI assistants and automated workflows with sensible human oversight.',
-    points: ['AI assistant workflows', 'Business process automation', 'AI model and API integration', 'Privacy and cost controls']
+    points: ['AI assistants for business information and tasks', 'Workflow automation and repetitive-task reduction', 'LLM, API and existing-tool integration', 'Human review, privacy and usage-cost controls']
   },
   {
     title: 'Custom Software',
     slug: 'custom-software',
     icon: Workflow,
     description: 'CRM, ERP, dashboards and business tools for real operational workflows.',
-    points: ['Workflow analysis and requirements', 'CRM and ERP modules', 'Reporting and integrations', 'Incremental implementation']
+    points: ['Business process analysis and requirements', 'Custom CRM, ERP and operational modules', 'Reports, dashboards and system integrations', 'Phased delivery with testing and documentation']
   },
   {
     title: 'UI/UX Design',
     slug: 'ui-ux-design',
     icon: Palette,
     description: 'Clear interfaces and consistent design systems for digital products.',
-    points: ['Information architecture', 'User flows and wireframes', 'Responsive design systems', 'Accessibility and usability']
+    points: ['Information architecture and user journeys', 'Wireframes, prototypes and interaction design', 'Reusable responsive design systems', 'Accessibility and usability improvements']
   },
   {
     title: 'Digital Growth',
     slug: 'digital-marketing',
     icon: Megaphone,
     description: 'SEO, local visibility, useful content and focused digital campaigns.',
-    points: ['Technical and on-page SEO', 'Local SEO and Google Business Profile', 'Content for search and social', 'Campaign measurement']
+    points: ['Technical SEO and on-page optimisation', 'Local SEO and Google Business Profile support', 'Search-focused content and social campaigns', 'Analytics, lead tracking and campaign measurement']
   }
 ];
 
