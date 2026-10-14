@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
   BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
-  Users, Calculator, Menu, X
+  Users, Calculator, Menu, X, MessageCircle
 } from 'lucide-react';
 
 const services = [
@@ -463,17 +463,55 @@ export default function InnerPage({ path }) {
       {isContact && (
         <section className="section inner-content-section">
           <div className="container contact-page-grid">
-            <div>
+            <div className="contact-page-intro">
               <div className="eyebrow"><span className="eyebrow-line" /> START A CONVERSATION</div>
               <h2>Good projects begin<br />with a <span className="orange-text">clear brief.</span></h2>
-              <p>Tell us what you need, who it is for and what success would look like.</p>
-              <a className="button button-primary" href="mailto:info@aarunyawebsolutions.com?subject=Project%20Enquiry">Email your project brief <ArrowRight size={17} /></a>
+              <p>Tell us what you want to build, who it is for and what you want to achieve. Choose whichever contact method works best for you.</p>
+
+              <div className="contact-actions">
+                <a
+                  className="button button-primary"
+                  href="mailto:info@aarunyawebsolutions.com?subject=Project%20Enquiry%20-%20Aarunya%20Web%20Solutions&body=Hello%20Aarunya%20team%2C%0A%0AI%20would%20like%20to%20discuss%20a%20project.%0A%0AProject%20or%20service%3A%0ABusiness%20or%20industry%3A%0ABudget%20range%3A%0ATarget%20timeline%3A%0AAdditional%20details%3A%0A%0AThank%20you."
+                >
+                  Email your project brief <ArrowRight size={17} />
+                </a>
+                <a
+                  className="button button-dark"
+                  href="https://wa.me/918770607203?text=Hello%20Aarunya%20Web%20Solutions%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle size={17} /> Chat on WhatsApp
+                </a>
+              </div>
+
+              <div className="contact-brief-points">
+                <span>HELP US UNDERSTAND YOUR PROJECT</span>
+                <ul>
+                  <li>What do you need: a website, software, an app or digital marketing?</li>
+                  <li>Who will use it, and what problem should it solve?</li>
+                  <li>Do you have a budget range or target launch date?</li>
+                </ul>
+              </div>
             </div>
+
             <div className="contact-page-card">
-              <div><span className="contact-label">EMAIL</span><a href="mailto:info@aarunyawebsolutions.com">info@aarunyawebsolutions.com</a></div>
-              <div><span className="contact-label">PHONE</span><a href="tel:+918770607203">+91 8770607203</a></div>
-              <div><span className="contact-label">LOCATION</span><span>Panna, Madhya Pradesh, India</span></div>
-              <div><span className="contact-label">PROJECTS</span><span>Websites · Software · AI automation · Digital growth</span></div>
+              <div>
+                <span className="contact-label">EMAIL</span>
+                <a href="mailto:info@aarunyawebsolutions.com">info@aarunyawebsolutions.com</a>
+              </div>
+              <div>
+                <span className="contact-label">PHONE</span>
+                <a href="tel:+918770607203">+91 8770607203</a>
+              </div>
+              <div>
+                <span className="contact-label">LOCATION</span>
+                <span>Panna, Madhya Pradesh, India</span>
+              </div>
+              <div>
+                <span className="contact-label">WHAT WE DO</span>
+                <span>Websites · Software · AI automation · Digital growth</span>
+              </div>
             </div>
           </div>
         </section>

@@ -306,3 +306,60 @@ button { font: inherit; }
   .inner-bottom-cta > .container { align-items: flex-start; flex-direction: column; }
   .inner-actions { gap: 15px; }
 }
+
+/* Contact conversion improvements */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 26px 0 28px;
+}
+
+.contact-actions .button {
+  gap: 9px;
+}
+
+.contact-brief-points {
+  padding: 20px;
+  border: 1px solid #e3ebf6;
+  border-radius: 12px;
+  background: #f5f8fd;
+}
+
+.contact-brief-points > span {
+  color: #68778d;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.contact-brief-points ul {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: #56647a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.contact-brief-points li::marker {
+  color: var(--orange);
+}
+
+@media (max-width: 700px) {
+  .contact-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-actions .button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .contact-brief-points {
+    padding: 17px;
+  }
+}
