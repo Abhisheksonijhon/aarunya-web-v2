@@ -317,7 +317,7 @@ function HomePage() {
 }
 
 function App() {
-  const path = window.location.pathname.replace(/\\/+$/, '') || '/';
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
   return path === '/' ? <HomePage /> : <InnerPage path={path} />;
 }
 
