@@ -316,8 +316,11 @@ function HomePage() {
   );
 }
 
-function App() {
-  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+function App({ initialPath } = {}) {
+  const currentPath = initialPath ??
+    (typeof window !== 'undefined' ? window.location.pathname : '/');
+  const path = currentPath.replace(/\/+$/, '') || '/';
+
   return path === '/' ? <HomePage /> : <InnerPage path={path} />;
 }
 
