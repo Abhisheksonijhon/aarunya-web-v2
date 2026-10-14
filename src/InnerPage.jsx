@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
   BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
-  Users, Calculator
+  Users, Calculator, Menu, X
 } from 'lucide-react';
 
 const services = [
@@ -85,6 +85,95 @@ const products = [
     color: 'product-dark'
   }
 ];
+
+
+function InnerBrand() {
+  return (
+    <a className="brand" href="/" aria-label="Aarunya Web Solutions home">
+      <span className="brand-mark">A<span>.</span></span>
+      <span className="brand-copy">
+        <strong>AARUNYA</strong>
+        <small>WEB SOLUTIONS</small>
+      </span>
+    </a>
+  );
+}
+
+function InnerHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <>
+      <div className="announcement">
+        <span className="announcement-dot" />
+        Digital solutions for businesses ready to grow.
+        <a href="/contact">Let's talk <ArrowRight size={13} /></a>
+      </div>
+
+      <header className="header">
+        <div className="container nav-wrap">
+          <InnerBrand />
+
+          <button
+            className="menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={menuOpen}
+            aria-controls="inner-primary-navigation"
+          >
+            {menuOpen ? <X /> : <Menu />}
+          </button>
+
+          <nav
+            id="inner-primary-navigation"
+            className={menuOpen ? 'nav-links nav-open' : 'nav-links'}
+          >
+            <a href="/services" onClick={closeMenu}>Services</a>
+            <a href="/products" onClick={closeMenu}>Our Products</a>
+            <a href="/about" onClick={closeMenu}>About</a>
+            <a href="/contact" onClick={closeMenu}>Contact</a>
+            <a className="nav-cta" href="/contact" onClick={closeMenu}>
+              Start a project <ArrowUpRight size={16} />
+            </a>
+          </nav>
+        </div>
+      </header>
+    </>
+  );
+}
+
+function InnerFooter() {
+  return (
+    <footer className="footer">
+      <div className="container footer-main">
+        <div className="footer-brand">
+          <InnerBrand />
+          <p>Building digital experiences and smarter business solutions.</p>
+        </div>
+
+        <div className="footer-links">
+          <span>EXPLORE</span>
+          <a href="/services">Services</a>
+          <a href="/products">Our products</a>
+          <a href="/about">About us</a>
+        </div>
+
+        <div className="footer-links">
+          <span>GET IN TOUCH</span>
+          <a href="mailto:info@aarunyawebsolutions.com">Email us</a>
+          <a href="tel:+918770607203">Call us</a>
+          <a href="/contact">Start a project</a>
+        </div>
+      </div>
+
+      <div className="container footer-bottom">
+        <span>© {new Date().getFullYear()} Aarunya Web Solutions. All rights reserved.</span>
+        <span>Built with purpose. Powered by ideas.</span>
+      </div>
+    </footer>
+  );
+}
 
 export default function InnerPage({ path }) {
   const parts = path.split('/').filter(Boolean);
@@ -238,7 +327,9 @@ export default function InnerPage({ path }) {
   const notFound = !service && !product && !isServices && !isProducts && !isAbout && !isContact;
 
   return (
-    <main className="inner-page">
+    <>
+      <InnerHeader />
+      <main className="inner-page">
       <section className="inner-hero">
         <div className="inner-hero-grid" />
         <div className="container inner-hero-content">
@@ -400,6 +491,8 @@ export default function InnerPage({ path }) {
           <a className="button button-white" href="/contact">Start a conversation <ArrowUpRight size={17} /></a>
         </div>
       </section>
-    </main>
+      </main>
+      <InnerFooter />
+    </>
   );
 }
