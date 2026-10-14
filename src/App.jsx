@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import InnerPage from './InnerPage.jsx';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X,
   Code2, Smartphone, Palette, Megaphone, BrainCircuit,
@@ -50,7 +51,7 @@ const products = [
     name: 'BillZen',
     icon: ReceiptText,
     description: 'Billing, inventory and business management designed for everyday business operations.',
-    link: 'https://billzen.aarunyawebsolutions.com',
+    link: '/products/billzen',
     className: 'product-orange'
   },
   {
@@ -58,7 +59,7 @@ const products = [
     name: 'Omni Lead',
     icon: Users,
     description: 'A developing platform concept for business discovery, lead generation and opportunities.',
-    link: 'https://omnilead.aarunyawebsolutions.com',
+    link: '/products/omni-lead',
     className: 'product-blue'
   },
   {
@@ -66,14 +67,14 @@ const products = [
     name: 'ArthaZen',
     icon: Calculator,
     description: 'An evolving concept exploring AI-assisted financial workflows and tax technology.',
-    link: 'mailto:info@aarunyawebsolutions.com?subject=ArthaZen%20enquiry',
+    link: '/products/arthazen',
     className: 'product-dark'
   }
 ];
 
 function Brand() {
   return (
-    <a className="brand" href="#home" aria-label="Aarunya Web Solutions home">
+    <a className="brand" href="/" aria-label="Aarunya Web Solutions home">
       <span className="brand-mark">A<span>.</span></span>
       <span className="brand-copy">
         <strong>AARUNYA</strong>
@@ -83,7 +84,7 @@ function Brand() {
   );
 }
 
-function App() {
+function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
@@ -93,7 +94,7 @@ function App() {
       <div className="announcement">
         <span className="announcement-dot" />
         Digital solutions for businesses ready to grow.
-        <a href="#contact">Let's talk <ArrowRight size={13} /></a>
+        <a href="/contact">Let's talk <ArrowRight size={13} /></a>
       </div>
 
       <header className="header">
@@ -108,11 +109,11 @@ function App() {
             {menuOpen ? <X /> : <Menu />}
           </button>
           <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'}>
-            <a href="#services" onClick={closeMenu}>Services</a>
-            <a href="#products" onClick={closeMenu}>Our Products</a>
-            <a href="#about" onClick={closeMenu}>About</a>
-            <a href="#contact" onClick={closeMenu}>Contact</a>
-            <a className="nav-cta" href="#contact" onClick={closeMenu}>
+            <a href="/services" onClick={closeMenu}>Services</a>
+            <a href="/products" onClick={closeMenu}>Our Products</a>
+            <a href="/about" onClick={closeMenu}>About</a>
+            <a href="/contact" onClick={closeMenu}>Contact</a>
+            <a className="nav-cta" href="/contact" onClick={closeMenu}>
               Start a project <ArrowUpRight size={16} />
             </a>
           </nav>
@@ -138,10 +139,10 @@ function App() {
                 that help ambitious businesses work smarter and grow stronger.
               </p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#contact">
+                <a className="button button-primary" href="/contact">
                   Build something great <ArrowRight size={18} />
                 </a>
-                <a className="text-link" href="#services">
+                <a className="text-link" href="/services">
                   Explore our services <ArrowDownRight size={17} />
                 </a>
               </div>
@@ -197,7 +198,7 @@ function App() {
                   </div>
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <a href="#contact" className="card-arrow" aria-label={`Enquire about ${title}`}>
+                  <a href="/contact" className="card-arrow" aria-label={`Enquire about ${title}`}>
                     <ArrowUpRight size={19} />
                   </a>
                 </article>
@@ -262,7 +263,7 @@ function App() {
                 <div><CheckCircle2 size={18} /><span>Clear communication and practical execution</span></div>
                 <div><CheckCircle2 size={18} /><span>Technology designed to evolve with you</span></div>
               </div>
-              <a href="#contact" className="button button-dark">Let's work together <ArrowRight size={17} /></a>
+              <a href="/contact" className="button button-dark">Let's work together <ArrowRight size={17} /></a>
             </div>
           </div>
         </section>
@@ -295,15 +296,15 @@ function App() {
           </div>
           <div className="footer-links">
             <span>EXPLORE</span>
-            <a href="#services">Services</a>
-            <a href="#products">Our products</a>
-            <a href="#about">About us</a>
+            <a href="/services">Services</a>
+            <a href="/products">Our products</a>
+            <a href="/about">About us</a>
           </div>
           <div className="footer-links">
             <span>GET IN TOUCH</span>
             <a href="mailto:info@aarunyawebsolutions.com">Email us</a>
             <a href="tel:+918770607203">Call us</a>
-            <a href="#contact">Start a project</a>
+            <a href="/contact">Start a project</a>
           </div>
         </div>
         <div className="container footer-bottom">
@@ -313,6 +314,11 @@ function App() {
       </footer>
     </>
   );
+}
+
+function App() {
+  const path = window.location.pathname.replace(/\\/+$/, '') || '/';
+  return path === '/' ? <HomePage /> : <InnerPage path={path} />;
 }
 
 export default App;

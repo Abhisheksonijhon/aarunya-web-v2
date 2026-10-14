@@ -1,0 +1,300 @@
+import { useEffect } from 'react';
+import {
+  ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
+  BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
+  Users, Calculator
+} from 'lucide-react';
+
+const services = [
+  {
+    title: 'Web Development',
+    slug: 'web-development',
+    icon: Code2,
+    description: 'Responsive business websites, landing pages and web applications.',
+    points: ['Business websites and landing pages', 'Web applications and dashboards', 'Lead-generation experiences', 'Performance and SEO foundations']
+  },
+  {
+    title: 'Mobile Applications',
+    slug: 'mobile-apps',
+    icon: Smartphone,
+    description: 'Focused mobile experiences designed around customer and team needs.',
+    points: ['MVP planning and prioritisation', 'Customer-facing app experiences', 'API and backend integration', 'Responsive, usable interfaces']
+  },
+  {
+    title: 'AI & Automation',
+    slug: 'ai-automation',
+    icon: BrainCircuit,
+    description: 'Practical AI assistants and automated workflows with sensible human oversight.',
+    points: ['AI assistant workflows', 'Business process automation', 'AI model and API integration', 'Privacy and cost controls']
+  },
+  {
+    title: 'Custom Software',
+    slug: 'custom-software',
+    icon: Workflow,
+    description: 'CRM, ERP, dashboards and business tools for real operational workflows.',
+    points: ['Workflow analysis and requirements', 'CRM and ERP modules', 'Reporting and integrations', 'Incremental implementation']
+  },
+  {
+    title: 'UI/UX Design',
+    slug: 'ui-ux-design',
+    icon: Palette,
+    description: 'Clear interfaces and consistent design systems for digital products.',
+    points: ['Information architecture', 'User flows and wireframes', 'Responsive design systems', 'Accessibility and usability']
+  },
+  {
+    title: 'Digital Growth',
+    slug: 'digital-marketing',
+    icon: Megaphone,
+    description: 'SEO, local visibility, useful content and focused digital campaigns.',
+    points: ['Technical and on-page SEO', 'Local SEO and Google Business Profile', 'Content for search and social', 'Campaign measurement']
+  }
+];
+
+const products = [
+  {
+    name: 'BillZen',
+    slug: 'billzen',
+    tag: 'BUSINESS MANAGEMENT',
+    icon: ReceiptText,
+    description: 'Billing, inventory and business management for everyday business operations.',
+    status: 'Live product; feature availability may evolve.',
+    url: 'https://billzen.aarunyawebsolutions.com',
+    points: ['GST billing and invoice workflows', 'Inventory and expense tracking', 'Customer records and business workflows'],
+    color: 'product-orange'
+  },
+  {
+    name: 'Omni Lead',
+    slug: 'omni-lead',
+    tag: 'BUSINESS DISCOVERY',
+    icon: Users,
+    description: 'A developing platform for business discovery, listings and lead-generation workflows.',
+    status: 'In development.',
+    url: 'https://omnilead.aarunyawebsolutions.com',
+    points: ['Business discovery and listing concepts', 'Lead-generation workflow exploration', 'Business opportunity discovery'],
+    color: 'product-blue'
+  },
+  {
+    name: 'ArthaZen',
+    slug: 'arthazen',
+    tag: 'FINANCE & TAX TECHNOLOGY',
+    icon: Calculator,
+    description: 'An early-stage concept exploring AI-assisted financial workflows and tax technology.',
+    status: 'Concept and early planning.',
+    url: 'mailto:info@aarunyawebsolutions.com?subject=ArthaZen%20enquiry',
+    points: ['AI-assisted financial workflow concepts', 'Tax and compliance information organisation', 'Human review for important decisions'],
+    color: 'product-dark'
+  }
+];
+
+export default function InnerPage({ path }) {
+  const parts = path.split('/').filter(Boolean);
+  const section = parts[0] || '';
+  const slug = parts[1] || '';
+  const service = section === 'services' ? services.find(x => x.slug === slug) : null;
+  const product = section === 'products' ? products.find(x => x.slug === slug) : null;
+  const isServices = path === '/services';
+  const isProducts = path === '/products';
+  const isAbout = path === '/about';
+  const isContact = path === '/contact';
+
+  let eyebrow = 'AARUNYA WEB SOLUTIONS';
+  let title = 'Let’s find the right digital solution.';
+  let description = 'Explore our services and products.';
+  let points = [];
+
+  if (service) {
+    eyebrow = service.title.toUpperCase();
+    title = service.title + ' built around your business.';
+    description = service.description;
+    points = service.points;
+  } else if (product) {
+    eyebrow = product.tag;
+    title = product.name + ': technology for practical needs.';
+    description = product.description;
+    points = product.points;
+  } else if (isServices) {
+    eyebrow = 'OUR SERVICES';
+    title = 'Practical digital services for real business goals.';
+    description = 'From websites and interfaces to custom software and automation, choose the support that fits your next step.';
+  } else if (isProducts) {
+    eyebrow = 'OUR PRODUCTS';
+    title = 'Digital products built to solve practical problems.';
+    description = 'Explore products developed by Aarunya, with a clear distinction between available products and concepts still in development.';
+  } else if (isAbout) {
+    eyebrow = 'ABOUT AARUNYA';
+    title = 'Useful technology. Clear priorities. Meaningful progress.';
+    description = 'Aarunya Web Solutions combines development, design and practical automation to help businesses move forward.';
+  } else if (isContact) {
+    eyebrow = 'CONTACT';
+    title = 'Tell us what you want to build.';
+    description = 'Share your goals, the problem you want to solve and what a successful outcome looks like.';
+  }
+
+  useEffect(() => {
+    document.title = `${product ? product.name + ' | ' : ''}${eyebrow} | Aarunya Web Solutions`;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', description);
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', `https://aarunyawebsolutions.com${path}`);
+    window.scrollTo(0, 0);
+  }, [path]);
+
+  const notFound = !service && !product && !isServices && !isProducts && !isAbout && !isContact;
+
+  return (
+    <main className="inner-page">
+      <section className="inner-hero">
+        <div className="inner-hero-grid" />
+        <div className="container inner-hero-content">
+          <div className="eyebrow"><span className="eyebrow-line" /> {eyebrow}</div>
+          {product && <div className="inner-product-name">{product.name}<span>.</span></div>}
+          <h1>{notFound ? 'We couldn’t find that page.' : title}</h1>
+          <p>{notFound ? 'Use the navigation to continue exploring our website.' : description}</p>
+          <div className="inner-actions">
+            <a className="button button-primary" href="/contact">Discuss a project <ArrowRight size={17} /></a>
+            <a className="text-link" href={section === 'products' || isProducts ? '/products' : '/services'}>
+              Explore {section === 'products' || isProducts ? 'products' : 'services'} <ArrowUpRight size={17} />
+            </a>
+          </div>
+          {(service || product) && (
+            <div className="inner-status"><span /> {product ? product.status : 'Scope tailored to your requirements'}</div>
+          )}
+        </div>
+        <div className="inner-orbit inner-orbit-one" />
+        <div className="inner-orbit inner-orbit-two" />
+        <div className="inner-orbit inner-orbit-three" />
+      </section>
+
+      {(isServices || isProducts) && (
+        <section className="section inner-content-section">
+          <div className="container">
+            {isServices && (
+              <div className="section-heading">
+                <div>
+                  <div className="eyebrow"><span className="eyebrow-line" /> CAPABILITIES</div>
+                  <h2>Choose the right<br /><span className="orange-text">starting point.</span></h2>
+                </div>
+                <p>Start with a focused project, validate the essentials and expand when it makes sense.</p>
+              </div>
+            )}
+            <div className={isServices ? 'services-grid' : 'products-grid'}>
+              {(isServices ? services : products).map((item, index) => {
+                const Icon = item.icon;
+                return isServices ? (
+                  <article className="service-card" key={item.slug}>
+                    <div className="service-top">
+                      <span className="service-icon"><Icon size={23} /></span>
+                      <span className="service-number">0{index + 1}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <a className="card-arrow" href={'/services/' + item.slug} aria-label={'Explore ' + item.title}>
+                      <ArrowUpRight size={19} />
+                    </a>
+                  </article>
+                ) : (
+                  <article className={'product-card ' + item.color} key={item.slug}>
+                    <div className="product-card-top">
+                      <span className="product-icon"><Icon size={25} /></span>
+                      <span className="product-tag">{item.tag}</span>
+                    </div>
+                    <h3>{item.name}<span className="product-period">.</span></h3>
+                    <p>{item.description}</p>
+                    <a href={'/products/' + item.slug}>Product details <ArrowUpRight size={17} /></a>
+                  </article>
+                );
+              })}
+            </div>
+            {isProducts && <p className="product-note">Product availability and features may evolve during development.</p>}
+          </div>
+        </section>
+      )}
+
+      {(service || product) && (
+        <section className="section inner-content-section">
+          <div className="container detail-layout">
+            <div className="detail-copy">
+              <div className="eyebrow"><span className="eyebrow-line" /> {product ? 'OVERVIEW' : 'WHAT THIS CAN INCLUDE'}</div>
+              <h2>{product ? 'Designed around practical needs.' : 'A clear scope. A useful outcome.'}</h2>
+              <p>{product
+                ? 'Capabilities and availability should be confirmed before making important operational decisions.'
+                : 'Every engagement starts by understanding the goal, users and constraints. We define a realistic scope and build in focused iterations.'}</p>
+              <a className="button button-dark" href="/contact">Talk through your requirements <ArrowRight size={17} /></a>
+            </div>
+            <div className="detail-list">
+              {points.map(point => (
+                <div key={point}><CheckCircle2 size={19} /><span>{point}</span></div>
+              ))}
+              {product && (
+                <a className="button button-primary detail-external" href={product.url}
+                  target={product.url.startsWith('http') ? '_blank' : undefined}
+                  rel={product.url.startsWith('http') ? 'noreferrer' : undefined}>
+                  Visit {product.name} <ArrowUpRight size={17} />
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isAbout && (
+        <section className="section inner-content-section">
+          <div className="container about-layout">
+            <div className="about-visual">
+              <div className="about-shape shape-one" />
+              <div className="about-shape shape-two" />
+              <div className="about-visual-content">
+                <span className="about-monogram">A<span>.</span></span>
+                <span className="about-visual-caption">THOUGHTFUL TECHNOLOGY.<br />MEANINGFUL RESULTS.</span>
+              </div>
+              <span className="about-badge">DESIGNED FOR GROWTH ↗</span>
+            </div>
+            <div className="about-copy">
+              <div className="eyebrow"><span className="eyebrow-line" /> HOW WE WORK</div>
+              <h2>Useful first.<br /><span className="orange-text">Complexity second.</span></h2>
+              <p>Aarunya Web Solutions is a digital solutions business based in Panna, Madhya Pradesh, India. We work across websites, software, design and digital growth.</p>
+              <p>Our approach is practical: understand the business problem, choose a suitable solution, validate it and improve through feedback.</p>
+              <div className="about-points">
+                <div><CheckCircle2 size={18} /><span>Honest scope and clear priorities</span></div>
+                <div><CheckCircle2 size={18} /><span>Incremental development and iteration</span></div>
+                <div><CheckCircle2 size={18} /><span>Responsible use of AI and automation</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isContact && (
+        <section className="section inner-content-section">
+          <div className="container contact-page-grid">
+            <div>
+              <div className="eyebrow"><span className="eyebrow-line" /> START A CONVERSATION</div>
+              <h2>Good projects begin<br />with a <span className="orange-text">clear brief.</span></h2>
+              <p>Tell us what you need, who it is for and what success would look like.</p>
+              <a className="button button-primary" href="mailto:info@aarunyawebsolutions.com?subject=Project%20Enquiry">Email your project brief <ArrowRight size={17} /></a>
+            </div>
+            <div className="contact-page-card">
+              <div><span className="contact-label">EMAIL</span><a href="mailto:info@aarunyawebsolutions.com">info@aarunyawebsolutions.com</a></div>
+              <div><span className="contact-label">PHONE</span><a href="tel:+918770607203">+91 8770607203</a></div>
+              <div><span className="contact-label">LOCATION</span><span>Panna, Madhya Pradesh, India</span></div>
+              <div><span className="contact-label">PROJECTS</span><span>Websites · Software · AI automation · Digital growth</span></div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {notFound && (
+        <section className="section inner-content-section">
+          <div className="container"><a className="button button-primary" href="/">Return home <ArrowRight size={17} /></a></div>
+        </section>
+      )}
+
+      <section className="inner-bottom-cta">
+        <div className="container">
+          <div><span>HAVE A PROJECT IN MIND?</span><h2>Let’s build something useful.</h2></div>
+          <a className="button button-white" href="/contact">Start a conversation <ArrowUpRight size={17} /></a>
+        </div>
+      </section>
+    </main>
+  );
+}
