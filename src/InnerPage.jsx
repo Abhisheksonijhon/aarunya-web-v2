@@ -402,10 +402,10 @@ export default function InnerPage({ path }) {
           <div className="container detail-layout">
             <div className="detail-copy">
               <div className="eyebrow"><span className="eyebrow-line" /> {product ? 'OVERVIEW' : 'WHAT THIS CAN INCLUDE'}</div>
-              <h2>{product ? 'Designed around practical needs.' : 'A clear scope. A useful outcome.'}</h2>
+              <h2>{product ? 'Designed around practical needs.' : service ? 'What we deliver for your business.' : 'A clear scope. A useful outcome.'}</h2>
               <p>{product
                 ? 'Capabilities and availability should be confirmed before making important operational decisions.'
-                : 'Every engagement starts by understanding the goal, users and constraints. We define a realistic scope and build in focused iterations.'}</p>
+                : service ? service.description + ' We align the scope, priorities and delivery plan with your business goals.' : 'Every engagement starts by understanding the goal, users and constraints. We define a realistic scope and build in focused iterations.'}</p>
               <a className="button button-dark" href="/contact">Talk through your requirements <ArrowRight size={17} /></a>
             </div>
             <div className="detail-list">
