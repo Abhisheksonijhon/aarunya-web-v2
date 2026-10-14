@@ -58,7 +58,7 @@ const products = [
     icon: ReceiptText,
     description: 'Billing, inventory and business management for everyday business operations.',
     status: 'Live product; feature availability may evolve.',
-    url: 'https://billzen.aarunyawebsolutions.com/landingpage.html',
+    url: 'https://billzen.aarunyawebsolutions.com/landing.html',
     points: ['GST billing and invoice workflows', 'Inventory and expense tracking', 'Customer records and business workflows'],
     color: 'product-orange'
   },
