@@ -10,38 +10,50 @@ const services = [
   {
     icon: Code2,
     number: '01',
-    title: 'Web Development',
-    description: 'Fast, responsive websites and web applications built around your business goals.'
+    title: 'Website Development',
+    description: 'Business websites, landing pages and web applications with responsive layouts, clear calls to action and SEO-ready foundations.'
   },
   {
     icon: Smartphone,
     number: '02',
-    title: 'Mobile Applications',
-    description: 'Intuitive mobile experiences that help customers connect with your business.'
-  },
-  {
-    icon: BrainCircuit,
-    number: '03',
-    title: 'AI & Automation',
-    description: 'Practical AI assistants, automated workflows and smarter business operations.'
-  },
-  {
-    icon: Workflow,
-    number: '04',
-    title: 'Custom Software',
-    description: 'Business tools, dashboards, CRM and ERP solutions designed for real workflows.'
+    title: 'Mobile App Development',
+    description: 'Customer-facing and internal mobile experiences planned around user needs, essential features and a realistic MVP scope.'
   },
   {
     icon: Palette,
-    number: '05',
+    number: '03',
     title: 'UI/UX Design',
-    description: 'Clear, consistent digital experiences that make complex products easier to use.'
+    description: 'User flows, wireframes and consistent interface systems that make digital products easier to understand and use.'
   },
   {
     icon: Megaphone,
+    number: '04',
+    title: 'Digital Marketing & SEO',
+    description: 'Technical and on-page SEO, local search visibility, social media content and focused digital campaigns.'
+  },
+  {
+    icon: Workflow,
+    number: '05',
+    title: 'E-commerce Solutions',
+    description: 'Online storefronts and shopping workflows covering product discovery, orders, inventory and payment integration.'
+  },
+  {
+    icon: Users,
     number: '06',
-    title: 'Digital Growth',
-    description: 'SEO, social media and digital campaigns to improve visibility and reach.'
+    title: 'CRM & Business Dashboards',
+    description: 'Customer management, reporting dashboards and workflow tools to organise information and support better decisions.'
+  },
+  {
+    icon: BrainCircuit,
+    number: '07',
+    title: 'AI & Automation',
+    description: 'Practical AI assistants and repeatable workflow automation, with attention to privacy, cost and human review.'
+  },
+  {
+    icon: ReceiptText,
+    number: '08',
+    title: 'Custom Business Software',
+    description: 'Purpose-built tools for operational workflows, integrations and business processes that off-the-shelf software cannot fit.'
   }
 ];
 
@@ -203,6 +215,35 @@ function HomePage() {
                   </a>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="process-section section" id="approach">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <div className="eyebrow"><span className="eyebrow-line" /> HOW WE WORK</div>
+                <h2>From first conversation<br />to <span className="orange-text">useful delivery.</span></h2>
+              </div>
+              <p>A clear, collaborative process keeps the work focused on the business problem—not just the technology.</p>
+            </div>
+            <div className="process-grid">
+              <article className="process-card">
+                <span>01</span>
+                <h3>Understand the goal</h3>
+                <p>We discuss your business, users, priorities and constraints before recommending a solution.</p>
+              </article>
+              <article className="process-card">
+                <span>02</span>
+                <h3>Define the right scope</h3>
+                <p>We organise requirements into practical deliverables, identify dependencies and prioritise what matters first.</p>
+              </article>
+              <article className="process-card">
+                <span>03</span>
+                <h3>Build and improve</h3>
+                <p>We develop in focused stages, review the outcome with you and refine the work using feedback.</p>
+              </article>
             </div>
           </div>
         </section>
