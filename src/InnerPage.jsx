@@ -58,7 +58,7 @@ const products = [
     icon: ReceiptText,
     description: 'Billing, inventory and business management for everyday business operations.',
     status: 'Live product; feature availability may evolve.',
-    url: 'https://billzen.aarunyawebsolutions.com',
+    url: 'https://billzen.aarunyawebsolutions.com/landingpage.html',
     points: ['GST billing and invoice workflows', 'Inventory and expense tracking', 'Customer records and business workflows'],
     color: 'product-orange'
   },
@@ -225,11 +225,20 @@ export default function InnerPage({ path }) {
               {points.map(point => (
                 <div key={point}><CheckCircle2 size={19} /><span>{point}</span></div>
               ))}
-              {product && (
-                <a className="button button-primary detail-external" href={product.url}
-                  target={product.url.startsWith('http') ? '_blank' : undefined}
-                  rel={product.url.startsWith('http') ? 'noreferrer' : undefined}>
-                  Visit {product.name} <ArrowUpRight size={17} />
+              {product?.slug === 'billzen' && (
+                <a
+                  className="button button-primary detail-external"
+                  href={product.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit BillZen <ArrowUpRight size={17} />
+                </a>
+              )}
+
+              {product && product.slug !== 'billzen' && (
+                <a className="button button-primary detail-external" href="/contact">
+                  Discuss this product <ArrowRight size={17} />
                 </a>
               )}
             </div>
