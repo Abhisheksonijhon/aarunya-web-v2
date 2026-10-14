@@ -2,7 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aarunyawebsolutions.com/</loc>
-    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services/web-development</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services/mobile-apps</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services/ai-automation</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services/custom-software</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services/ui-ux-design</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/services/digital-marketing</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/products</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/products/billzen</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/products/omni-lead</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/products/arthazen</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/about</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/contact</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>
