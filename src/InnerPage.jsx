@@ -157,6 +157,7 @@ function InnerFooter() {
           <a href="/services">Services</a>
           <a href="/products">Our products</a>
           <a href="/about">About us</a>
+          <a href="/website-development-panna">Website Development in Panna</a>
         </div>
 
         <div className="footer-links">
@@ -185,6 +186,7 @@ export default function InnerPage({ path }) {
   const isProducts = path === '/products';
   const isAbout = path === '/about';
   const isContact = path === '/contact';
+  const isPannaLanding = path === '/website-development-panna';
 
   let eyebrow = 'AARUNYA WEB SOLUTIONS';
   let title = 'Let’s find the right digital solution.';
@@ -219,11 +221,17 @@ export default function InnerPage({ path }) {
     description = 'Share your goals, the problem you want to solve and what a successful outcome looks like.';
   }
 
+  if (isPannaLanding) {
+    eyebrow = 'WEB DEVELOPMENT IN PANNA';
+    title = 'Website Development Company in Panna, Madhya Pradesh';
+    description = 'Business websites, e-commerce stores and custom web applications planned around your goals, customers and budget.';
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [path]);
 
-  const notFound = !service && !product && !isServices && !isProducts && !isAbout && !isContact;
+  const notFound = !service && !product && !isServices && !isProducts && !isAbout && !isContact && !isPannaLanding;
 
   return (
     <>
@@ -327,6 +335,34 @@ export default function InnerPage({ path }) {
                   Discuss this product <ArrowRight size={17} />
                 </a>
               )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isPannaLanding && (
+        <section className="section inner-content-section">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <div className="eyebrow"><span className="eyebrow-line" /> LOCAL DIGITAL SERVICES</div>
+                <h2>Build a stronger<br /><span className="orange-text">digital presence.</span></h2>
+              </div>
+              <p>Practical web solutions for businesses in Panna and nearby areas of Madhya Pradesh.</p>
+            </div>
+            <div className="services-grid">
+              <article className="service-card"><div className="service-top"><span className="service-number">01</span></div><h3>Business Websites</h3><p>Professional, mobile-friendly websites that explain your services and help customers contact your business.</p></article>
+              <article className="service-card"><div className="service-top"><span className="service-number">02</span></div><h3>E-commerce Websites</h3><p>Online stores with product pages and customer-friendly browsing and enquiry options.</p></article>
+              <article className="service-card"><div className="service-top"><span className="service-number">03</span></div><h3>Custom Software and CRM</h3><p>Web applications, customer-management tools and workflow software planned around your needs.</p></article>
+              <article className="service-card"><div className="service-top"><span className="service-number">04</span></div><h3>Technical SEO</h3><p>Search-friendly page structure, metadata, internal links, mobile usability and indexing essentials.</p></article>
+              <article className="service-card"><div className="service-top"><span className="service-number">05</span></div><h3>AI and Automation</h3><p>Explore practical automation to reduce repetitive work and improve business workflows.</p></article>
+              <article className="service-card"><div className="service-top"><span className="service-number">06</span></div><h3>WhatsApp Enquiries</h3><p>Clear contact options that help prospective customers enquire about your services.</p></article>
+            </div>
+            <div className="detail-list">
+              <a className="text-link" href="/services/web-development">Explore web development <ArrowRight size={17} /></a>
+              <a className="text-link" href="/services/custom-software">Explore custom software and CRM <ArrowRight size={17} /></a>
+              <a className="text-link" href="/services/digital-marketing">Explore digital marketing and SEO <ArrowRight size={17} /></a>
+              <a className="text-link" href="/contact">Contact Aarunya Web Solutions <ArrowRight size={17} /></a>
             </div>
           </div>
         </section>

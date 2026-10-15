@@ -23,6 +23,11 @@ const pages = [
     description: 'Responsive business websites, landing pages and web applications built around your business goals.'
   },
   {
+    path: '/website-development-panna',
+    title: 'Website Development Company in Panna | Aarunya Web Solutions',
+    description: 'Looking for website development in Panna, Madhya Pradesh? Aarunya Web Solutions builds business websites, e-commerce stores and custom web applications.'
+  },
+  {
     path: '/services/mobile-apps',
     title: 'Mobile App Development | Aarunya Web Solutions',
     description: 'Plan and build useful mobile application experiences with focused MVP scope, API integration and responsive interfaces.'
