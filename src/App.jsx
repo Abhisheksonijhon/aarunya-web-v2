@@ -147,8 +147,7 @@ function HomePage() {
                 <span className="gradient-text">digital impact.</span>
               </h1>
               <p className="hero-description">
-                We build websites, business software and AI-powered solutions
-                that help ambitious businesses work smarter and grow stronger.
+                Based in Panna, Madhya Pradesh, we build websites, business software and practical AI-powered solutions for businesses in India and remote projects internationally.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="/contact">
@@ -255,7 +254,7 @@ function HomePage() {
                 <div className="eyebrow"><span className="eyebrow-line" /> BUILT BY AARUNYA</div>
                 <h2>Our ideas.<br /><span className="orange-text">Your next advantage.</span></h2>
               </div>
-              <p>We are developing digital products to simplify business operations and explore new ways technology can create value.</p>
+              <p>BillZen is our flagship business software product. We are also developing new concepts for business discovery and AI-assisted financial workflows.</p>
             </div>
             <div className="products-grid">
               {products.map(({ tag, name, icon: Icon, description, link, className }) => (
@@ -292,8 +291,7 @@ function HomePage() {
               <div className="eyebrow"><span className="eyebrow-line" /> WHO WE ARE</div>
               <h2>Good technology<br />starts with <span className="orange-text">understanding.</span></h2>
               <p>
-                Aarunya Web Solutions is a digital solutions business focused on
-                building useful, accessible and thoughtful technology for modern businesses.
+                Aarunya Web Solutions is a founder-led technology business based in Panna, Madhya Pradesh, India. We build websites, software and digital solutions around practical business needs.
               </p>
               <p>
                 We combine development, design and automation to solve practical
@@ -340,6 +338,7 @@ function HomePage() {
             <a href="/services">Services</a>
             <a href="/products">Our products</a>
             <a href="/about">About us</a>
+            <a href="/website-development-panna">Website Development in Panna</a>
           </div>
           <div className="footer-links">
             <span>GET IN TOUCH</span>

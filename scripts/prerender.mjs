@@ -9,8 +9,8 @@ const origin = 'https://aarunyawebsolutions.com';
 const pages = [
   {
     path: '/',
-    title: 'Aarunya Web Solutions | Websites, Software & AI Automation',
-    description: 'Aarunya Web Solutions builds modern websites, business software, AI automation, mobile apps and digital growth systems for businesses.'
+    title: 'Aarunya Web Solutions | Digital Products, Websites & AI Solutions',
+    description: 'Aarunya Web Solutions, based in Panna, India, builds websites, business software, digital products and practical AI-powered solutions.'
   },
   {
     path: '/services',
