@@ -53,6 +53,16 @@ const pages = [
     description: 'Improve digital visibility with technical SEO, local search, useful content, social media and focused campaigns.'
   },
   {
+    path: "/services/e-commerce",
+    title: "E-commerce Website Development | Aarunya Web Solutions",
+    description: "Plan a responsive online store with product catalogues, checkout integration, inventory workflows and search-friendly foundations."
+  },
+  {
+    path: "/services/crm-dashboards",
+    title: "CRM & Business Dashboards | Aarunya Web Solutions",
+    description: "Organise customer records, lead follow-ups and business reporting with CRM tools and dashboards tailored to your workflows."
+  },
+  {
     path: '/products',
     title: 'Our Digital Products | Aarunya Web Solutions',
     description: 'Explore BillZen, Omni Lead in development and ArthaZen in early planning.'

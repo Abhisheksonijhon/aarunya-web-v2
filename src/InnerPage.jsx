@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
   BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
-  Users, Calculator, Menu, X, MessageCircle
+  Users, Calculator, ShoppingCart, Menu, X, MessageCircle
 } from 'lucide-react';
 
 const services = [
@@ -47,6 +47,20 @@ const services = [
     icon: Megaphone,
     description: 'SEO, local visibility, useful content and focused digital campaigns.',
     points: ['Technical SEO and on-page optimisation', 'Local SEO and Google Business Profile support', 'Search-focused content and social campaigns', 'Analytics, lead tracking and campaign measurement']
+  },
+  {
+    title: "E-commerce Solutions",
+    slug: "e-commerce",
+    icon: ShoppingCart,
+    description: "Online stores designed around product discovery, customer experience and order workflows.",
+    points: ["Product catalogues and organised product pages", "Responsive shopping experiences for mobile and desktop", "Cart, checkout and payment gateway integration planning", "Inventory, order management and store administration workflows", "Technical SEO and performance foundations"]
+  },
+  {
+    title: "CRM & Business Dashboards",
+    slug: "crm-dashboards",
+    icon: Users,
+    description: "Customer management tools and business dashboards that organise workflows and make operational information easier to use.",
+    points: ["Customer records and enquiry tracking workflows", "Lead pipelines, follow-ups and activity management", "Business dashboards and reporting views", "Role-based access and integration planning", "Phased implementation, testing and documentation"]
   }
 ];
 
