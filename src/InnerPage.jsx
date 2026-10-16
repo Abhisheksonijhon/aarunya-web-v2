@@ -192,6 +192,85 @@ function InnerFooter() {
   );
 }
 
+function ProjectEnquiryForm() {
+  const [form, setForm] = useState({ name: "", business: "", contact: "", service: "", budget: "", timeline: "", details: "" });
+  const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const submit = (e) => {
+    e.preventDefault();
+    const message = [
+      "Hello Aarunya Web Solutions, I would like to discuss a project.",
+      "",
+      "Name: " + form.name,
+      "Business: " + (form.business || "Not provided"),
+      "Email or phone: " + form.contact,
+      "Service: " + form.service,
+      "Budget: " + (form.budget || "Not decided"),
+      "Timeline: " + (form.timeline || "Not decided"),
+      "Project details: " + (form.details || "To be discussed")
+    ].join(String.fromCharCode(10));
+    window.open("https://wa.me/918770607203?text=" + encodeURIComponent(message), "_blank", "noopener,noreferrer");
+  };
+  return (
+    <form className="project-enquiry-form" onSubmit={submit}>
+      <div className="enquiry-form-heading">
+        <span className="contact-label">PROJECT ENQUIRY</span>
+        <h3>Tell us about your project</h3>
+        <p>Share a few details to start the conversation.</p>
+      </div>
+      <div className="enquiry-form-grid">
+        <label>Your name *
+          <input name="name" value={form.name} onChange={update} autoComplete="name" required maxLength={100} />
+        </label>
+        <label>Business name
+          <input name="business" value={form.business} onChange={update} autoComplete="organization" maxLength={120} />
+        </label>
+        <label>Email or phone *
+          <input name="contact" value={form.contact} onChange={update} required maxLength={160} />
+        </label>
+        <label>Service required *
+          <select name="service" value={form.service} onChange={update} required>
+            <option value="">Choose a service</option>
+            <option>Website development</option>
+            <option>Mobile application</option>
+            <option>E-commerce</option>
+            <option>CRM or business software</option>
+            <option>AI and automation</option>
+            <option>Digital marketing and SEO</option>
+            <option>Other / not sure</option>
+          </select>
+        </label>
+        <label>Budget range
+          <select name="budget" value={form.budget} onChange={update}>
+            <option value="">Select if known</option>
+            <option>Below ₹10,000</option>
+            <option>₹10,000–₹25,000</option>
+            <option>₹25,000–₹50,000</option>
+            <option>₹50,000–₹1,00,000</option>
+            <option>Above ₹1,00,000</option>
+            <option>Need guidance</option>
+          </select>
+        </label>
+        <label>Target timeline
+          <select name="timeline" value={form.timeline} onChange={update}>
+            <option value="">Select if known</option>
+            <option>Within 2 weeks</option>
+            <option>Within 1 month</option>
+            <option>1–3 months</option>
+            <option>Flexible / planning</option>
+          </select>
+        </label>
+        <label className="enquiry-details">Project requirements
+          <textarea name="details" value={form.details} onChange={update} rows="4" maxLength={2000} placeholder="What would you like to build or improve?" />
+        </label>
+      </div>
+      <button className="button button-primary enquiry-submit" type="submit">
+        <MessageCircle size={17} /> Continue to WhatsApp <ArrowRight size={17} />
+      </button>
+      <p className="enquiry-privacy-note">Your brief will be placed in a WhatsApp message for you to review and send. This form does not store your details.</p>
+    </form>
+  );
+}
+
 export default function InnerPage({ path }) {
   const parts = path.split('/').filter(Boolean);
   const section = parts[0] || '';
@@ -531,6 +610,8 @@ export default function InnerPage({ path }) {
                 </ul>
               </div>
             </div>
+
+            <ProjectEnquiryForm />
 
             <div className="contact-page-card">
               <div>
