@@ -83,6 +83,16 @@ const pages = [
     description: 'Discover ArthaZen, an early-stage concept exploring AI-assisted financial workflows and tax technology.'
   },
   {
+    path: '/work',
+    title: 'Portfolio & Digital Product Work | Aarunya Web Solutions',
+    description: 'Explore BillZen, Omni Lead and ArthaZen: business software and digital product concepts developed by Aarunya Web Solutions.'
+  },
+  {
+    path: '/work/billzen',
+    title: 'BillZen Case Study | Aarunya Web Solutions',
+    description: 'Explore BillZen, an Aarunya-built business product covering billing, inventory, expenses and customer-management workflows.'
+  },
+  {
     path: '/about',
     title: 'About Aarunya Web Solutions | Panna, India',
     description: 'Learn about Aarunya Web Solutions, based in Panna, Madhya Pradesh, working across software, design and digital growth.'

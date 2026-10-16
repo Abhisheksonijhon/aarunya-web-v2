@@ -145,6 +145,7 @@ function InnerHeader() {
           >
             <a href="/services" onClick={closeMenu}>Services</a>
             <a href="/products" onClick={closeMenu}>Our Products</a>
+            <a href="/work" onClick={closeMenu}>Work</a>
             <a href="/about" onClick={closeMenu}>About</a>
             <a href="/contact" onClick={closeMenu}>Contact</a>
             <a className="nav-cta" href="/contact" onClick={closeMenu}>
@@ -170,6 +171,7 @@ function InnerFooter() {
           <span>EXPLORE</span>
           <a href="/services">Services</a>
           <a href="/products">Our products</a>
+          <a href="/work">Portfolio</a>
           <a href="/about">About us</a>
           <a href="/website-development-panna">Website Development in Panna</a>
         </div>
@@ -196,6 +198,8 @@ export default function InnerPage({ path }) {
   const slug = parts[1] || '';
   const service = section === 'services' ? services.find(x => x.slug === slug) : null;
   const product = section === 'products' ? products.find(x => x.slug === slug) : null;
+  const isWork = path === "/work";
+  const isBillzenCaseStudy = path === "/work/billzen";
   const isServices = path === '/services';
   const isProducts = path === '/products';
   const isAbout = path === '/about';
@@ -225,6 +229,14 @@ export default function InnerPage({ path }) {
     eyebrow = 'OUR PRODUCTS';
     title = 'Digital products built to solve practical problems.';
     description = 'Explore products developed by Aarunya, with a clear distinction between available products and concepts still in development.';
+  } else if (isWork) {
+    eyebrow = "OUR WORK";
+    title = "Digital products shaped around practical problems.";
+    description = "Explore products and technology concepts being developed by Aarunya Web Solutions.";
+  } else if (isBillzenCaseStudy) {
+    eyebrow = "PROJECT CASE STUDY";
+    title = "BillZen: billing and business management software.";
+    description = "Aarunya-built business software bringing billing, inventory and customer workflows into one product experience.";
   } else if (isAbout) {
     eyebrow = 'ABOUT AARUNYA';
     title = 'Useful technology. Clear priorities. Meaningful progress.';
@@ -245,7 +257,7 @@ export default function InnerPage({ path }) {
     window.scrollTo(0, 0);
   }, [path]);
 
-  const notFound = !service && !product && !isServices && !isProducts && !isAbout && !isContact && !isPannaLanding;
+  const notFound = !service && !product && !isServices && !isProducts && !isWork && !isBillzenCaseStudy && !isAbout && !isContact && !isPannaLanding;
 
   return (
     <>
@@ -349,6 +361,82 @@ export default function InnerPage({ path }) {
                   Discuss this product <ArrowRight size={17} />
                 </a>
               )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isWork && (
+        <section className="section inner-content-section">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <div className="eyebrow"><span className="eyebrow-line" /> SELECTED WORK</div>
+                <h2>Products built around<br /><span className="orange-text">real-world workflows.</span></h2>
+              </div>
+              <p>A look at our software products, current builds and early-stage technology concepts. Development status and available capabilities are stated transparently.</p>
+            </div>
+            <div className="products-grid">
+              <article className="product-card">
+                <div className="product-card-top"><span className="product-tag">LIVE PRODUCT</span></div>
+                <h3>BillZen<span className="product-period">.</span></h3>
+                <p>Billing and business-management software with GST invoice workflows, inventory, expense tracking and customer-management features.</p>
+                <p className="product-note">Public product; feature availability may evolve.</p>
+                <a href="/work/billzen">Read the case study <ArrowUpRight size={17} /></a>
+                <a href="/products/billzen">Product overview <ArrowUpRight size={17} /></a>
+              </article>
+              <article className="product-card">
+                <div className="product-card-top"><span className="product-tag">IN DEVELOPMENT</span></div>
+                <h3>Omni Lead<span className="product-period">.</span></h3>
+                <p>A developing business-discovery and lead-generation concept for finding relevant businesses and organising opportunities.</p>
+                <p className="product-note">Features and release scope are evolving.</p>
+                <a href="/products/omni-lead">Explore the project <ArrowUpRight size={17} /></a>
+              </article>
+              <article className="product-card">
+                <div className="product-card-top"><span className="product-tag">EARLY-STAGE CONCEPT</span></div>
+                <h3>ArthaZen<span className="product-period">.</span></h3>
+                <p>An early-stage finance and tax technology concept exploring ways to make complex financial workflows easier to understand.</p>
+                <p className="product-note">Concept stage; not a tax-filing or financial-advice service.</p>
+                <a href="/products/arthazen">Explore the concept <ArrowUpRight size={17} /></a>
+              </article>
+            </div>
+            <div className="detail-copy" style={{marginTop: "36px"}}>
+              <h2>Have a practical problem to solve?</h2>
+              <p>We also work with businesses on websites, e-commerce, CRM dashboards and custom software.</p>
+              <a className="button button-primary" href="/contact">Discuss your project <ArrowRight size={17} /></a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isBillzenCaseStudy && (
+        <section className="section inner-content-section">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <div className="eyebrow"><span className="eyebrow-line" /> PRODUCT CASE STUDY</div>
+                <h2>Bringing everyday<br /><span className="orange-text">business workflows together.</span></h2>
+              </div>
+              <p>BillZen is an Aarunya Web Solutions product focused on billing and business-management workflows. Its scope and capabilities continue to evolve.</p>
+            </div>
+            <div className="detail-layout">
+              <div className="detail-copy">
+                <h2>The product direction</h2>
+                <p>Small businesses often need to keep billing, stock, expenses and customer information organised. BillZen is being developed to bring these workflows into one product experience.</p>
+                <h3>Development approach</h3>
+                <p>BillZen follows a founder-led, iterative development approach: establish practical core workflows, refine the product and communicate feature availability clearly.</p>
+                <p>This case study describes the product direction and current scope, not independently verified business outcomes or customer results.</p>
+                <a className="button button-primary" href="https://billzen.aarunyawebsolutions.com/landing.html" target="_blank" rel="noopener noreferrer">Visit BillZen <ArrowUpRight size={17} /></a>
+              </div>
+              <div className="detail-list">
+                <div><CheckCircle2 size={19} /><span>GST billing and invoice workflows</span></div>
+                <div><CheckCircle2 size={19} /><span>Inventory tracking capabilities</span></div>
+                <div><CheckCircle2 size={19} /><span>Expense tracking</span></div>
+                <div><CheckCircle2 size={19} /><span>Customer records and limited CRM workflows</span></div>
+                <div><CheckCircle2 size={19} /><span>Product development and feature scope may evolve</span></div>
+                <a className="text-link" href="/products/billzen">View BillZen product details <ArrowRight size={17} /></a>
+                <a className="text-link" href="/work">Back to portfolio <ArrowRight size={17} /></a>
+              </div>
             </div>
           </div>
         </section>

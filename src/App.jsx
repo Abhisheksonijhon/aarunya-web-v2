@@ -123,6 +123,7 @@ function HomePage() {
           <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'}>
             <a href="/services" onClick={closeMenu}>Services</a>
             <a href="/products" onClick={closeMenu}>Our Products</a>
+            <a href="/work" onClick={closeMenu}>Work</a>
             <a href="/about" onClick={closeMenu}>About</a>
             <a href="/contact" onClick={closeMenu}>Contact</a>
             <a className="nav-cta" href="/contact" onClick={closeMenu}>
@@ -337,6 +338,7 @@ function HomePage() {
             <span>EXPLORE</span>
             <a href="/services">Services</a>
             <a href="/products">Our products</a>
+          <a href="/work">Portfolio</a>
             <a href="/about">About us</a>
             <a href="/website-development-panna">Website Development in Panna</a>
           </div>

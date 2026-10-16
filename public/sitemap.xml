@@ -61,6 +61,14 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://aarunyawebsolutions.com/work</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/work/billzen</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://aarunyawebsolutions.com/about</loc>
     <priority>0.6</priority>
   </url>
