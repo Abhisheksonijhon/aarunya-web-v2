@@ -117,10 +117,11 @@ function HomePage() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={menuOpen}
+            aria-controls="home-primary-navigation"
           >
             {menuOpen ? <X /> : <Menu />}
           </button>
-          <nav className={menuOpen ? 'nav-links nav-open' : 'nav-links'}>
+          <nav id="home-primary-navigation" className={menuOpen ? 'nav-links nav-open' : 'nav-links'}>
             <a href="/services" onClick={closeMenu}>Services</a>
             <a href="/products" onClick={closeMenu}>Our Products</a>
             <a href="/work" onClick={closeMenu}>Work</a>

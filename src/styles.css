@@ -35,6 +35,9 @@ button { font: inherit; }
 .nav-cta { display: inline-flex; align-items: center; gap: 9px; padding: 12px 17px; background: var(--ink); color: white; border-radius: 7px; transition: background .2s; }
 .nav-cta:hover { background: var(--blue); }
 .menu-toggle { display: none; border: 0; background: transparent; color: var(--ink); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+.nav-links a:focus-visible, .menu-toggle:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+
 .hero { position: relative; overflow: hidden; background: linear-gradient(115deg,#fff 20%,#f9fbff 100%); }
 .hero-grid { position: absolute; inset: 0; opacity: .42; background-image: linear-gradient(rgba(36,116,223,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(36,116,223,.045) 1px,transparent 1px); background-size: 46px 46px; mask-image: linear-gradient(to right,transparent 20%,black 100%); }
 .hero-inner { position: relative; min-height: 560px; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 25px; padding-top: 44px; padding-bottom: 44px; }
