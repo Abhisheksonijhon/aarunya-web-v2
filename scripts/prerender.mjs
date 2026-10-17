@@ -98,6 +98,16 @@ const pages = [
     description: 'Learn about Aarunya Web Solutions, based in Panna, Madhya Pradesh, working across software, design and digital growth.'
   },
   {
+    path: '/privacy-policy',
+    title: 'Privacy Policy | Aarunya Web Solutions',
+    description: 'Read how Aarunya Web Solutions handles enquiries, project information, website data and privacy requests.'
+  },
+  {
+    path: '/terms-of-service',
+    title: 'Terms of Service | Aarunya Web Solutions',
+    description: 'Review general terms for Aarunya Web Solutions projects, pricing, delivery, intellectual property, maintenance and refunds.'
+  },
+  {
     path: '/contact',
     title: 'Contact Aarunya Web Solutions | Start a Project',
     description: 'Contact Aarunya Web Solutions about websites, software, AI automation, mobile applications or digital growth projects.'

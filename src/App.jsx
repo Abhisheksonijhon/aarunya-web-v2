@@ -344,6 +344,11 @@ function HomePage() {
             <a href="/website-development-panna">Website Development in Panna</a>
           </div>
           <div className="footer-links">
+            <span>POLICIES</span>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+          </div>
+          <div className="footer-links">
             <span>GET IN TOUCH</span>
             <a href="mailto:info@aarunyawebsolutions.com">Email us</a>
             <a href="tel:+918770607203">Call us</a>

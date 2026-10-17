@@ -76,4 +76,12 @@
     <loc>https://aarunyawebsolutions.com/contact</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/privacy-policy</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/terms-of-service</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>
