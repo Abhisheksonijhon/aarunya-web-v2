@@ -225,7 +225,7 @@ function ProjectEnquiryForm() {
           <input name="business" value={form.business} onChange={update} autoComplete="organization" maxLength={120} />
         </label>
         <label>Email or phone *
-          <input name="contact" value={form.contact} onChange={update} required maxLength={160} />
+          <input name="contact" type="text" inputMode="text" autoComplete="on" placeholder="Email address or mobile number" value={form.contact} onChange={update} required maxLength={160} />
         </label>
         <label>Service required *
           <select name="service" value={form.service} onChange={update} required>
