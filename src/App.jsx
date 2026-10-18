@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import InnerPage from './InnerPage.jsx';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X,
@@ -84,6 +84,65 @@ const products = [
   }
 ];
 
+function Hero3D() {
+  const stageRef = useRef(null);
+
+  useEffect(() => {
+    const stage = stageRef.current;
+    const art = stage?.parentElement;
+    if (!stage || !art) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    if (reduceMotion || coarsePointer) return;
+
+    const onMove = (e) => {
+      const rect = art.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      stage.style.transform = `rotateY(${(px * 16).toFixed(2)}deg) rotateX(${(py * -12).toFixed(2)}deg)`;
+    };
+    const onLeave = () => { stage.style.transform = ''; };
+
+    art.addEventListener('pointermove', onMove);
+    art.addEventListener('pointerleave', onLeave);
+    return () => {
+      art.removeEventListener('pointermove', onMove);
+      art.removeEventListener('pointerleave', onLeave);
+    };
+  }, []);
+
+  return (
+    <div className="hero-art" aria-label="Abstract 3D technology illustration">
+      <div className="hero-stage" ref={stageRef}>
+        <div className="hero-scene">
+          <div className="scene-ring" />
+          <div className="scene-ring scene-ring-two" />
+          <div className="art-center scene-core">
+            <span className="art-a">A<span>.</span></span>
+            <span className="art-label">THINK. BUILD. GROW.</span>
+          </div>
+          <div className="float-card scene-node node-one">
+            <span className="float-icon orange-icon"><Code2 size={18} /></span>
+            <span><strong>Web & Software</strong><small>Built to perform</small></span>
+          </div>
+          <div className="float-card scene-node node-two">
+            <span className="float-icon blue-icon"><BrainCircuit size={18} /></span>
+            <span><strong>AI & Automation</strong><small>Smarter workflows</small></span>
+          </div>
+          <div className="float-card scene-node node-three">
+            <span className="float-icon dark-icon"><Megaphone size={16} /></span>
+            <span><strong>Digital Growth</strong><small>Built to scale</small></span>
+          </div>
+          <div className="scene-dot dot-one" />
+          <div className="scene-dot dot-two" />
+          <div className="scene-dot dot-three" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Brand() {
   return (
     <a className="brand" href="/" aria-label="Aarunya Web Solutions home">
@@ -165,25 +224,7 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="hero-art" aria-label="Abstract digital technology illustration">
-              <div className="art-orbit orbit-one" />
-              <div className="art-orbit orbit-two" />
-              <div className="art-orbit orbit-three" />
-              <div className="art-center">
-                <span className="art-a">A<span>.</span></span>
-                <span className="art-label">THINK. BUILD. GROW.</span>
-              </div>
-              <div className="float-card float-top">
-                <span className="float-icon orange-icon"><Code2 size={19} /></span>
-                <span><strong>Digital experiences</strong><small>Made for people</small></span>
-              </div>
-              <div className="float-card float-bottom">
-                <span className="float-icon blue-icon"><BrainCircuit size={20} /></span>
-                <span><strong>Smarter systems</strong><small>Powered by technology</small></span>
-              </div>
-              <div className="art-spark spark-one">✳</div>
-              <div className="art-spark spark-two">✦</div>
-            </div>
+            <Hero3D />
           </div>
           <div className="container hero-bottom">
             <span>WEB & SOFTWARE</span><i />

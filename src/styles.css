@@ -57,11 +57,7 @@ button { font: inherit; }
 .text-link:hover { color: var(--blue); }
 .hero-trust { display: flex; align-items: center; gap: 8px; margin-top: 33px; font-size: 11px; color: #6b7789; }
 .trust-icon { color: #21a46c; display: flex; }
-.hero-art { min-height: 410px; position: relative; display: grid; place-items: center; }
-.art-orbit { position: absolute; border: 1px solid #dce7f6; border-radius: 50%; transform: rotate(-23deg); }
-.orbit-one { width: 355px; height: 355px; }
-.orbit-two { width: 285px; height: 285px; border-style: dashed; border-color: #e5d9cb; }
-.orbit-three { width: 215px; height: 215px; border-color: #d7e5f7; }
+.hero-art { min-height: 410px; position: relative; display: grid; place-items: center; perspective: 1400px; }
 .art-center { width: 158px; height: 158px; border-radius: 36px; transform: rotate(-8deg); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: linear-gradient(140deg,#fff,#f0f5ff); border: 1px solid #fff; box-shadow: 0 25px 65px #1c37651b, inset 0 0 0 1px #e5ebf4; }
 .art-a { font: 800 76px/.9 Manrope,sans-serif; letter-spacing: -.1em; color: var(--blue); }
 .art-a span { color: var(--orange); }
@@ -70,14 +66,9 @@ button { font: inherit; }
 .float-card span:last-child { display: flex; flex-direction: column; gap: 4px; }
 .float-card strong { font-size: 10px; }
 .float-card small { color: #7b8698; font-size: 9px; }
-.float-top { top: 55px; right: -1px; }
-.float-bottom { bottom: 52px; left: -5px; }
 .float-icon { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 10px; }
 .orange-icon { color: var(--orange); background: #fff1e7; }
 .blue-icon { color: var(--blue); background: #edf4ff; }
-.art-spark { position: absolute; font-size: 29px; }
-.spark-one { top: 54px; left: 65px; color: var(--orange); }
-.spark-two { right: 32px; bottom: 67px; color: var(--blue); }
 .hero-bottom { position: relative; display: flex; align-items: center; gap: 15px; border-top: 1px solid #e9edf4; padding-top: 20px; padding-bottom: 20px; color: #8490a1; font-size: 9px; letter-spacing: .16em; font-weight: 800; }
 .hero-bottom i { width: 4px; height: 4px; background: var(--orange); border-radius: 50%; }
 .section { padding: 100px 0; }
@@ -190,11 +181,11 @@ button { font: inherit; }
   .button { padding: 13px 15px; }
   .hero-trust { margin-top: 23px; font-size: 10px; }
   .hero-art { width: 100%; min-height: 325px; transform: scale(.83); transform-origin: center center; margin: -3px 0 -13px; }
-  .orbit-one { width: 310px; height: 310px; }
-  .orbit-two { width: 255px; height: 255px; }
-  .orbit-three { width: 195px; height: 195px; }
-  .float-top { right: -8px; top: 34px; }
-  .float-bottom { left: -8px; bottom: 35px; }
+  .scene-ring { width: 240px; height: 240px; }
+  .scene-ring-two { width: 185px; height: 185px; }
+  .node-one { right: -2%; }
+  .node-two { left: -4%; }
+  .node-three { display: none; }
   .hero-bottom { gap: 8px; justify-content: space-between; font-size: 7px; letter-spacing: .08em; padding-top: 15px; }
   .section { padding: 70px 0; }
   .section-heading { display: block; margin-bottom: 30px; }
@@ -394,3 +385,79 @@ button { font: inherit; }
 .legal-document p { color: var(--muted); font-size: 15px; line-height: 1.8; overflow-wrap: anywhere; }
 .legal-document > p:first-child { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .legal-document .legal-disclaimer { margin-top: 34px; padding: 16px; border-left: 3px solid var(--orange); background: #f7f9fc; font-size: 13px; }
+
+/* ===== Hero 3D visual (replaces flat orbit rings) ===== */
+.hero-stage {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+.hero-scene {
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  animation: sceneBreath 13s ease-in-out infinite;
+}
+@keyframes sceneBreath {
+  0%, 100% { transform: rotateY(-9deg) rotateX(2deg); }
+  50% { transform: rotateY(9deg) rotateX(-2deg); }
+}
+.scene-ring {
+  position: absolute; top: 50%; left: 50%;
+  width: 320px; height: 320px;
+  border: 1px solid #d7e5f7; border-radius: 50%;
+  animation: ringSpinOne 42s linear infinite;
+}
+.scene-ring-two {
+  width: 245px; height: 245px;
+  border-style: dashed; border-color: #f0d9c2;
+  animation: ringSpinTwo 30s linear infinite;
+}
+@keyframes ringSpinOne {
+  from { transform: translate3d(-50%,-50%,-30px) rotateX(74deg) rotateZ(0deg); }
+  to   { transform: translate3d(-50%,-50%,-30px) rotateX(74deg) rotateZ(360deg); }
+}
+@keyframes ringSpinTwo {
+  from { transform: translate3d(-50%,-50%,-55px) rotateX(74deg) rotateZ(360deg); }
+  to   { transform: translate3d(-50%,-50%,-55px) rotateX(74deg) rotateZ(0deg); }
+}
+.scene-core {
+  position: absolute; top: 50%; left: 50%; z-index: 3;
+  transform: translate3d(-50%,-50%,65px) rotate(-8deg);
+}
+.scene-node {
+  position: absolute; z-index: 4;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.node-one { top: 10%; right: -6%; animation-name: floatOne; animation-duration: 7s; }
+.node-two { bottom: 16%; left: -9%; animation-name: floatTwo; animation-duration: 8.5s; animation-delay: .6s; }
+.node-three { top: 46%; right: -13%; animation-name: floatThree; animation-duration: 6.5s; animation-delay: 1.1s; }
+@keyframes floatOne {
+  0%, 100% { transform: translateZ(75px) translateY(0); }
+  50% { transform: translateZ(75px) translateY(-9px); }
+}
+@keyframes floatTwo {
+  0%, 100% { transform: translateZ(42px) translateY(0); }
+  50% { transform: translateZ(42px) translateY(8px); }
+}
+@keyframes floatThree {
+  0%, 100% { transform: translateZ(18px) translateY(0); }
+  50% { transform: translateZ(18px) translateY(-6px); }
+}
+.dark-icon { color: #fff; background: var(--ink); }
+.scene-dot {
+  position: absolute; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--orange); box-shadow: 0 0 14px var(--orange);
+  animation: dotPulse 3.6s ease-in-out infinite;
+}
+.dot-one { top: 6%; left: 46%; transform: translateZ(-10px); }
+.dot-two {
+  top: 68%; left: 12%; background: var(--blue); box-shadow: 0 0 14px var(--blue);
+  transform: translateZ(-10px); animation-delay: .9s;
+}
+.dot-three { top: 78%; left: 82%; transform: translateZ(-10px); animation-delay: 1.8s; }
+@keyframes dotPulse {
+  0%, 100% { opacity: .45; }
+  50% { opacity: 1; }
+}
