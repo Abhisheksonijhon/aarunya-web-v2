@@ -159,6 +159,16 @@ function metadata(html, page) {
   );
 
   html = replaceMeta(
+    html, 'property="og:image"',
+    '<meta property="og:image" content="https://aarunyawebsolutions.com/og-image.png" />'
+  );
+
+  html = replaceMeta(
+    html, 'name="twitter:image"',
+    '<meta name="twitter:image" content="https://aarunyawebsolutions.com/og-image.png" />'
+  );
+
+  html = replaceMeta(
     html, 'name="twitter:title"',
     '<meta name="twitter:title" content="' + title + '" />'
   );
