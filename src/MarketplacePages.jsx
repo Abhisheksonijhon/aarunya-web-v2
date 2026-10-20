@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, CheckCircle2, Store, ShoppingBag, FileCheck2, PackageCheck, BookOpen, Clock3 } from 'lucide-react';
 import './marketplace.css';
+import ThemeToggle from './ThemeToggle.jsx';
 
 const marketplaceServices = [
   {
@@ -59,7 +60,7 @@ const articles = [
 ];
 
 function SiteHeader() {
-  return <header className="market-header"><a className="market-brand" href="/" aria-label="Aarunya Web Solutions home"><img src="/logo-icon.png" alt="" /><span><b>AARUNYA</b><small>WEB SOLUTIONS</small></span></a><nav aria-label="Main navigation"><a href="/services">Services</a><a href="/marketplace-seller-services">Marketplace support</a><a href="/blog">Insights</a><a href="/work">Work</a><a className="market-nav-cta" href="/contact">Talk to us <ArrowUpRight size={15}/></a></nav></header>;
+  return <header className="market-header"><a className="market-brand" href="/" aria-label="Aarunya Web Solutions home"><img src="/logo-icon.png" alt="" /><span><b>AARUNYA</b><small>WEB SOLUTIONS</small></span></a><nav aria-label="Main navigation"><a href="/services">Services</a><a href="/marketplace-seller-services">Marketplace support</a><a href="/blog">Insights</a><a href="/work">Work</a><a className="market-nav-cta" href="/contact">Talk to us <ArrowUpRight size={15}/></a><ThemeToggle /></nav></header>;
 }
 
 function SiteFooter() {
