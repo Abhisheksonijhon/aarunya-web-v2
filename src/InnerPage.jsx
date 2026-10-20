@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ThemeToggle from './ThemeToggle.jsx';
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
   BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
@@ -128,6 +129,7 @@ function InnerHeader() {
       <header className="header">
         <div className="container nav-wrap">
           <InnerBrand />
+          <ThemeToggle />
 
           <button
             className="menu-toggle"
