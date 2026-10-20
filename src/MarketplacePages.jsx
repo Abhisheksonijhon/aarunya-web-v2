@@ -64,7 +64,15 @@ function SiteHeader() {
 }
 
 function SiteFooter() {
-  return <footer className="market-footer"><a className="market-brand" href="/"><img src="/logo-icon.png" alt="" /><span><b>AARUNYA</b><small>WEB SOLUTIONS</small></span></a><p>Practical digital support for growing businesses.</p><div><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a><a href="/contact">Contact</a></div><small>© {new Date().getFullYear()} Aarunya Web Solutions</small></footer>;
+  return <footer className="market-footer">
+    <div className="market-footer-main">
+      <div className="market-footer-brand"><a className="market-brand" href="/" aria-label="Aarunya Web Solutions home"><img src="/logo-icon.png" alt="" /><span><b>AARUNYA</b><small>WEB SOLUTIONS</small></span></a><p>Building digital experiences and practical business solutions.</p></div>
+      <div className="market-footer-links"><span>EXPLORE</span><a href="/services">Services</a><a href="/products">Our products</a><a href="/work">Portfolio</a><a href="/about">About Aarunya</a><a href="/marketplace-seller-services">Seller support</a></div>
+      <div className="market-footer-links"><span>INSIGHTS & POLICIES</span><a href="/blog">Insights & guides</a><a href="/privacy-policy">Privacy policy</a><a href="/terms-of-service">Terms of service</a></div>
+      <div className="market-footer-links"><span>GET IN TOUCH</span><a href="mailto:info@aarunyawebsolutions.com">Email us</a><a href="tel:+918770607203">+91 87706 07203</a><a href="/contact">Start a project</a></div>
+    </div>
+    <div className="market-footer-bottom"><span>© {new Date().getFullYear()} Aarunya Web Solutions. All rights reserved.</span><span>Built with purpose. Powered by ideas.</span></div>
+  </footer>;
 }
 
 function SellerIndex() {
