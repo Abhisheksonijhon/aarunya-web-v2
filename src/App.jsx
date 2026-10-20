@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import InnerPage from './InnerPage.jsx';
 import MarketplacePages from './MarketplacePages.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X,
   Code2, Smartphone, Palette, Megaphone, BrainCircuit,
@@ -172,6 +173,7 @@ function HomePage() {
       <header className="header">
         <div className="container nav-wrap">
           <Brand />
+          <ThemeToggle />
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
