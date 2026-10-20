@@ -104,7 +104,7 @@ const products = [
 function InnerBrand() {
   return (
     <a className="brand" href="/" aria-label="Aarunya Web Solutions home">
-      <span className="brand-mark">A<span>.</span></span>
+      <img className="brand-mark" src="/logo-icon.png" alt="" width="39" height="39" />
       <span className="brand-copy">
         <strong>AARUNYA</strong>
         <small>WEB SOLUTIONS</small>

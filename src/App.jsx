@@ -119,7 +119,7 @@ function Hero3D() {
           <div className="scene-ring" />
           <div className="scene-ring scene-ring-two" />
           <div className="art-center scene-core">
-            <span className="art-a">A<span>.</span></span>
+            <img src="/logo-icon.png" alt="" className="art-logo" />
             <span className="art-label">THINK. BUILD. GROW.</span>
           </div>
           <div className="float-card scene-node node-one">
@@ -146,7 +146,7 @@ function Hero3D() {
 function Brand() {
   return (
     <a className="brand" href="/" aria-label="Aarunya Web Solutions home">
-      <span className="brand-mark">A<span>.</span></span>
+      <img className="brand-mark" src="/logo-icon.png" alt="" width="39" height="39" />
       <span className="brand-copy">
         <strong>AARUNYA</strong>
         <small>WEB SOLUTIONS</small>

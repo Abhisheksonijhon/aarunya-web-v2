@@ -25,8 +25,8 @@ button { font: inherit; }
 .header { height: 82px; background: rgba(255,255,255,.96); border-bottom: 1px solid #edf0f4; position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
 .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.brand-mark { width: 39px; height: 39px; border: 2px solid var(--orange); border-radius: 12px; display: grid; place-items: center; font-family: Manrope, sans-serif; font-size: 25px; font-weight: 800; line-height: 1; color: var(--blue); }
-.brand-mark span, .brand-copy small { color: var(--orange); }
+.brand-mark { width: 39px; height: 39px; object-fit: contain; flex-shrink: 0; }
+.brand-copy small { color: var(--orange); }
 .brand-copy { display: flex; flex-direction: column; gap: 2px; }
 .brand-copy strong { font: 800 15px Manrope, sans-serif; letter-spacing: .09em; }
 .brand-copy small { font-size: 9px; font-weight: 700; letter-spacing: .2em; }
@@ -58,9 +58,8 @@ button { font: inherit; }
 .hero-trust { display: flex; align-items: center; gap: 8px; margin-top: 33px; font-size: 11px; color: #6b7789; }
 .trust-icon { color: #21a46c; display: flex; }
 .hero-art { min-height: 410px; position: relative; display: grid; place-items: center; perspective: 1400px; }
-.art-center { width: 158px; height: 158px; border-radius: 36px; transform: rotate(-8deg); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: linear-gradient(140deg,#fff,#f0f5ff); border: 1px solid #fff; box-shadow: 0 25px 65px #1c37651b, inset 0 0 0 1px #e5ebf4; }
-.art-a { font: 800 76px/.9 Manrope,sans-serif; letter-spacing: -.1em; color: var(--blue); }
-.art-a span { color: var(--orange); }
+.art-center { width: 168px; height: 168px; border-radius: 36px; transform: rotate(-8deg); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; background: linear-gradient(140deg,#fff,#f0f5ff); border: 1px solid #fff; box-shadow: 0 25px 65px #1c37651b, inset 0 0 0 1px #e5ebf4; }
+.art-logo { width: 84px; height: 84px; object-fit: contain; filter: drop-shadow(0 6px 14px #f477213d); }
 .art-label { font-size: 8px; letter-spacing: .14em; font-weight: 800; color: #748097; }
 .float-card { position: absolute; display: flex; align-items: center; gap: 10px; padding: 13px 15px; background: #fff; border: 1px solid #e8edf5; border-radius: 12px; box-shadow: 0 15px 35px #1722380e; }
 .float-card span:last-child { display: flex; flex-direction: column; gap: 4px; }
@@ -180,12 +179,16 @@ button { font: inherit; }
   .hero-actions { gap: 17px; margin-top: 23px; }
   .button { padding: 13px 15px; }
   .hero-trust { margin-top: 23px; font-size: 10px; }
-  .hero-art { width: 100%; min-height: 325px; transform: scale(.83); transform-origin: center center; margin: -3px 0 -13px; }
-  .scene-ring { width: 240px; height: 240px; }
-  .scene-ring-two { width: 185px; height: 185px; }
-  .node-one { right: -2%; }
-  .node-two { left: -4%; }
-  .node-three { display: none; }
+  .hero-art { width: 100%; min-height: 400px; margin: 6px 0 -4px; }
+  .scene-ring { width: 258px; height: 258px; }
+  .scene-ring-two { width: 198px; height: 198px; }
+  .art-center { width: 148px; height: 148px; }
+  .art-logo { width: 72px; height: 72px; }
+  .node-one { top: 3%; right: 2%; }
+  .node-two { bottom: 6%; left: 1%; }
+  .node-three { top: 44%; right: -1%; }
+  .float-card { padding: 10px 12px; gap: 8px; }
+  .float-icon { width: 30px; height: 30px; }
   .hero-bottom { gap: 8px; justify-content: space-between; font-size: 7px; letter-spacing: .08em; padding-top: 15px; }
   .section { padding: 70px 0; }
   .section-heading { display: block; margin-bottom: 30px; }
@@ -405,12 +408,14 @@ button { font: inherit; }
 .scene-ring {
   position: absolute; top: 50%; left: 50%;
   width: 320px; height: 320px;
-  border: 1px solid #d7e5f7; border-radius: 50%;
+  border: 1.5px solid #b7cdf2; border-radius: 50%;
+  box-shadow: 0 0 50px #2474df1f;
   animation: ringSpinOne 42s linear infinite;
 }
 .scene-ring-two {
   width: 245px; height: 245px;
-  border-style: dashed; border-color: #f0d9c2;
+  border-width: 1.5px; border-style: dashed; border-color: #ecb37f;
+  box-shadow: none;
   animation: ringSpinTwo 30s linear infinite;
 }
 @keyframes ringSpinOne {
