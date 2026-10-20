@@ -3,23 +3,28 @@ import { Sun, Moon } from 'lucide-react';
 
 const STORAGE_KEY = 'aarunya-theme';
 
+function readTheme() {
+  try {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (saved === 'dark' || saved === 'light') return saved;
+  } catch {}
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+}
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(readTheme);
 
   useEffect(() => {
-    let saved = null;
-    try { saved = window.localStorage.getItem(STORAGE_KEY); } catch {}
-    const initial = saved === 'dark' || saved === 'light'
-      ? saved
-      : (window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    setTheme(initial);
-    document.documentElement.dataset.theme = initial;
+    const syncTheme = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+    window.addEventListener('storage', syncTheme);
+    return () => window.removeEventListener('storage', syncTheme);
   }, []);
 
   const toggle = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
     document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
     try { window.localStorage.setItem(STORAGE_KEY, next); } catch {}
   };
 
