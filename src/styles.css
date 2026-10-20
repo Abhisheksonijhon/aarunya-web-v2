@@ -512,3 +512,16 @@ html,body{background:var(--page);color:var(--text);transition:background-color .
 @media(max-width:900px){.footer-main{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.nav-wrap>.theme-toggle{margin-left:auto}.theme-toggle{padding:8px}.theme-toggle-label{display:none}.footer-main{grid-template-columns:1fr 1fr;gap:28px 18px}}
 @media(prefers-reduced-motion:reduce){html,body{transition:none}}
+
+
+/* Dark theme completion and consistent shared footer */
+:root[data-theme="dark"] .section,:root[data-theme="dark"] .inner-content-section,:root[data-theme="dark"] .about-section,:root[data-theme="dark"] .process-section,:root[data-theme="dark"] .contact-section{background:var(--page);color:var(--text)}
+:root[data-theme="dark"] .section-heading h2,:root[data-theme="dark"] .about-copy h2,:root[data-theme="dark"] .process-section h2,:root[data-theme="dark"] .contact-page-intro h2,:root[data-theme="dark"] .detail-copy h2{color:var(--text)}
+:root[data-theme="dark"] .service-card,:root[data-theme="dark"] .product-card,:root[data-theme="dark"] .project-card,:root[data-theme="dark"] .contact-page-card,:root[data-theme="dark"] .project-enquiry-form,:root[data-theme="dark"] .detail-list>div,:root[data-theme="dark"] .about-visual{background:var(--surface);border-color:var(--border);color:var(--text)}
+:root[data-theme="dark"] .service-card p,:root[data-theme="dark"] .product-card p,:root[data-theme="dark"] .project-card p,:root[data-theme="dark"] .section-heading p,:root[data-theme="dark"] .detail-copy p,:root[data-theme="dark"] .about-copy p,:root[data-theme="dark"] .contact-page-intro p{color:var(--muted)}
+:root[data-theme="dark"] .service-icon,:root[data-theme="dark"] .product-icon{background:#202a3a;color:#ffad70}
+:root[data-theme="dark"] .inner-bottom-cta{background:#202a3a}
+:root[data-theme="dark"] .legal-document .legal-disclaimer{background:#202a3a;border-color:var(--orange)}
+:root[data-theme="dark"] .contact-brief-points{background:#171d29;border-color:var(--border)}
+:root[data-theme="dark"] .footer-bottom{border-color:var(--border)}
+@media(max-width:760px){.footer-main{grid-template-columns:1fr 1fr;gap:28px 18px}.footer-brand{grid-column:1/-1}}
