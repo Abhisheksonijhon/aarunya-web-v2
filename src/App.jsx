@@ -189,6 +189,8 @@ function HomePage() {
             <a href="/work" onClick={closeMenu}>Work</a>
             <a href="/about" onClick={closeMenu}>About</a>
             <a href="/contact" onClick={closeMenu}>Contact</a>
+            <a href="/marketplace-seller-services" onClick={closeMenu}>Seller support</a>
+            <a href="/blog" onClick={closeMenu}>Insights</a>
             <a className="nav-cta" href="/contact" onClick={closeMenu}>
               Start a project <ArrowUpRight size={16} />
             </a>
