@@ -108,6 +108,41 @@ const pages = [
     description: 'Review general terms for Aarunya Web Solutions projects, pricing, delivery, intellectual property, maintenance and refunds.'
   },
   {
+    path: '/marketplace-seller-services',
+    title: 'Marketplace Seller Services | Amazon, Flipkart & Meesho | Aarunya',
+    description: 'Get seller onboarding guidance, KYC document preparation support, product catalogue assistance and launch-readiness help for Amazon, Flipkart and Meesho.'
+  },
+  {
+    path: '/amazon-seller-services',
+    title: 'Amazon Seller Registration & Listing Support | Aarunya',
+    description: 'Practical Amazon seller onboarding guidance, documentation checklist, product listing and catalogue setup support. Marketplace approval is not guaranteed.'
+  },
+  {
+    path: '/flipkart-seller-services',
+    title: 'Flipkart Seller Registration & Catalogue Support | Aarunya',
+    description: 'Get guidance for Flipkart seller onboarding, document preparation, catalogue setup and launch-readiness tasks.'
+  },
+  {
+    path: '/meesho-seller-services',
+    title: 'Meesho Seller Registration & Product Listing Support | Aarunya',
+    description: 'Get guidance for Meesho seller onboarding, KYC document preparation, product catalogue assistance and launch tasks.'
+  },
+  {
+    path: '/blog',
+    title: 'Digital Growth & Marketplace Seller Guides | Aarunya Insights',
+    description: 'Read practical guides on marketplace seller preparation, product listing readiness, websites and digital business operations.'
+  },
+  {
+    path: '/blog/marketplace-seller-registration-checklist-india',
+    title: 'Marketplace Seller Registration Checklist India | Aarunya',
+    description: 'A practical checklist for preparing marketplace seller onboarding details, documents and product data in India.'
+  },
+  {
+    path: '/blog/product-listing-readiness-checklist',
+    title: 'Product Listing Readiness Checklist | Aarunya Insights',
+    description: 'Prepare product titles, images, specifications, pricing and inventory before launching on an online marketplace.'
+  },
+  {
     path: '/contact',
     title: 'Contact Aarunya Web Solutions | Start a Project',
     description: 'Contact Aarunya Web Solutions about websites, software, AI automation, mobile applications or digital growth projects.'
