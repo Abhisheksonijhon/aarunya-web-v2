@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import InnerPage from './InnerPage.jsx';
+import MarketplacePages from './MarketplacePages.jsx';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X,
   Code2, Smartphone, Palette, Megaphone, BrainCircuit,
@@ -261,6 +262,23 @@ function HomePage() {
           </div>
         </section>
 
+        <section className="marketplace-teaser-section section" id="marketplace-seller-support">
+          <div className="container marketplace-teaser">
+            <div className="marketplace-teaser-copy">
+              <div className="eyebrow"><span className="eyebrow-line" /> MARKETPLACE SELLER SUPPORT</div>
+              <h2>Ready to sell online?<br /><span className="orange-text">Start with a clear plan.</span></h2>
+              <p>Get practical help preparing for Amazon, Flipkart and Meesho seller onboarding, product catalogues and launch tasks. Approval remains with each marketplace.</p>
+              <a className="button button-primary" href="/marketplace-seller-services">Explore seller services <ArrowRight size={17} /></a>
+            </div>
+            <div className="marketplace-teaser-platforms">
+              <a href="/amazon-seller-services"><span>01</span><strong>Amazon seller support</strong><ArrowUpRight size={18}/></a>
+              <a href="/flipkart-seller-services"><span>02</span><strong>Flipkart seller support</strong><ArrowUpRight size={18}/></a>
+              <a href="/meesho-seller-services"><span>03</span><strong>Meesho seller support</strong><ArrowUpRight size={18}/></a>
+              <a href="/blog"><span>04</span><strong>Seller guides & insights</strong><ArrowUpRight size={18}/></a>
+            </div>
+          </div>
+        </section>
+
         <section className="process-section section" id="approach">
           <div className="container">
             <div className="section-heading">
@@ -410,6 +428,8 @@ function App({ initialPath } = {}) {
     (typeof window !== 'undefined' ? window.location.pathname : '/');
   const path = currentPath.replace(/\/+$/, '') || '/';
 
+  const marketplacePaths = ['/marketplace-seller-services', '/amazon-seller-services', '/flipkart-seller-services', '/meesho-seller-services', '/blog', '/blog/marketplace-seller-registration-checklist-india', '/blog/product-listing-readiness-checklist'];
+  if (marketplacePaths.includes(path)) return <MarketplacePages path={path} />;
   return path === '/' ? <HomePage /> : <InnerPage path={path} />;
 }
 
