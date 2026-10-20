@@ -466,3 +466,17 @@ button { font: inherit; }
   0%, 100% { opacity: .45; }
   50% { opacity: 1; }
 }
+
+
+/* Marketplace and editorial teaser on homepage */
+.marketplace-teaser-section{background:#f7f8fb}
+.marketplace-teaser{display:grid;grid-template-columns:1fr .9fr;gap:60px;align-items:center}
+.marketplace-teaser-copy h2{font:800 clamp(34px,4.2vw,49px)/1.15 Manrope,sans-serif;letter-spacing:-.055em;margin:17px 0}
+.marketplace-teaser-copy>p{font-size:13px;line-height:1.9;color:var(--muted);max-width:510px;margin-bottom:24px}
+.marketplace-teaser-platforms{display:grid;gap:0;border-top:1px solid var(--line)}
+.marketplace-teaser-platforms a{display:grid;grid-template-columns:40px 1fr 20px;align-items:center;gap:12px;padding:20px 5px;border-bottom:1px solid var(--line);transition:padding .2s,color .2s}
+.marketplace-teaser-platforms a:hover{padding-left:12px;color:var(--orange)}
+.marketplace-teaser-platforms span{font-size:10px;color:#9aa5b4;font-weight:800}
+.marketplace-teaser-platforms strong{font:800 15px Manrope,sans-serif}
+@media(max-width:760px){.marketplace-teaser{grid-template-columns:1fr;gap:30px}}
+@media(prefers-reduced-motion:reduce){.marketplace-teaser-platforms a{transition:none}}
