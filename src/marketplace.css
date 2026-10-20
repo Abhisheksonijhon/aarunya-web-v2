@@ -53,3 +53,17 @@
 :root[data-theme="dark"] .market-footer-links>span{color:#8592a6}
 :root[data-theme="dark"] .market-blog-art,:root[data-theme="dark"] .market-article-art{background:linear-gradient(135deg,#1c2a40,#29211f)}
 :root[data-theme="dark"] .market-article-card h3,:root[data-theme="dark"] .market-faq summary,:root[data-theme="dark"] .market-article-body h2{color:#f1f4f9}
+
+/* Match the primary site navigation dimensions and behavior */
+.market-site{min-height:100vh;display:flex;flex-direction:column;background:var(--page,#fff);color:var(--text,#172238)}
+.market-site>main{flex:1}
+.market-header{width:100%;max-width:none;height:82px;padding:0 max(5vw,calc((100vw - 1120px)/2));margin:0;position:sticky;top:0;background:var(--surface,#fff);border-bottom:1px solid var(--border,#e6eaf1);backdrop-filter:blur(14px)}
+.market-header nav{gap:clamp(12px,1.8vw,25px);font-size:12px;color:var(--muted,#566176)}
+.market-header nav>a:not(.market-nav-cta){display:inline-flex;align-items:center;white-space:nowrap}
+.market-header .market-nav-cta{white-space:nowrap;background:var(--ink,#172238);color:#fff}
+.market-header .theme-toggle{flex-shrink:0}
+.market-header .market-brand{margin-right:auto}
+@media(max-width:1050px){.market-header{padding:0 22px}.market-header nav{gap:12px;font-size:11px}.market-header nav>a:not(.market-nav-cta){display:none}}
+@media(max-width:600px){.market-header{height:70px;padding:0 18px}.market-header .market-nav-cta{padding:10px;font-size:10px}.market-header nav{gap:9px}}
+/* Keep every marketplace footer pinned to the same full-width layout */
+.market-footer{width:100%;margin-top:auto;flex-shrink:0}
