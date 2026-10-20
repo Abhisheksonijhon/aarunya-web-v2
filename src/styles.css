@@ -466,3 +466,62 @@ button { font: inherit; }
   0%, 100% { opacity: .45; }
   50% { opacity: 1; }
 }
+
+
+/* Marketplace and editorial teaser on homepage */
+.marketplace-teaser-section{background:#f7f8fb}
+.marketplace-teaser{display:grid;grid-template-columns:1fr .9fr;gap:60px;align-items:center}
+.marketplace-teaser-copy h2{font:800 clamp(34px,4.2vw,49px)/1.15 Manrope,sans-serif;letter-spacing:-.055em;margin:17px 0}
+.marketplace-teaser-copy>p{font-size:13px;line-height:1.9;color:var(--muted);max-width:510px;margin-bottom:24px}
+.marketplace-teaser-platforms{display:grid;gap:0;border-top:1px solid var(--line)}
+.marketplace-teaser-platforms a{display:grid;grid-template-columns:40px 1fr 20px;align-items:center;gap:12px;padding:20px 5px;border-bottom:1px solid var(--line);transition:padding .2s,color .2s}
+.marketplace-teaser-platforms a:hover{padding-left:12px;color:var(--orange)}
+.marketplace-teaser-platforms span{font-size:10px;color:#9aa5b4;font-weight:800}
+.marketplace-teaser-platforms strong{font:800 15px Manrope,sans-serif}
+@media(max-width:760px){.marketplace-teaser{grid-template-columns:1fr;gap:30px}}
+@media(prefers-reduced-motion:reduce){.marketplace-teaser-platforms a{transition:none}}
+
+
+/* Global light/dark theme tokens and consistent controls */
+:root{color-scheme:light;--page:#fff;--surface:#fff;--surface-soft:#f7f9fc;--text:#172238;--muted:#647086;--border:#e6eaf1}
+:root[data-theme="dark"]{color-scheme:dark;--page:#10141d;--surface:#171d29;--surface-soft:#131925;--text:#f1f4f9;--muted:#a8b3c5;--border:#2a3445}
+html,body{background:var(--page);color:var(--text);transition:background-color .22s,color .22s}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:8px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text);font:700 11px 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover{border-color:var(--orange);transform:translateY(-1px)}
+.theme-toggle-icon{display:inline-flex;align-items:center;color:var(--orange)}
+.nav-wrap{gap:12px}.nav-wrap>.theme-toggle{margin-left:auto}
+.header,.footer{background:var(--surface);color:var(--text)}
+.announcement{background:var(--surface-soft);color:var(--muted)}
+.nav-links>a:not(.nav-cta),.footer-links a{color:var(--muted)}
+.footer-main{grid-template-columns:1.45fr 1fr 1fr 1fr;align-items:start}
+:root[data-theme="dark"] .header,:root[data-theme="dark"] .footer{background:var(--surface);border-color:var(--border)}
+:root[data-theme="dark"] .announcement{background:#121824;color:#b7c1d0}
+:root[data-theme="dark"] .hero,:root[data-theme="dark"] .marketplace-teaser-section,:root[data-theme="dark"] .section:not(.inner-content-section){background:var(--page)}
+:root[data-theme="dark"] .hero-grid{opacity:.18}
+:root[data-theme="dark"] .service-card,:root[data-theme="dark"] .product-card,:root[data-theme="dark"] .project-card,:root[data-theme="dark"] .project-enquiry-form,:root[data-theme="dark"] .contact-page-card,:root[data-theme="dark"] .contact-brief-points,:root[data-theme="dark"] .detail-list>div{background:var(--surface);border-color:var(--border);color:var(--text)}
+:root[data-theme="dark"] .service-card p,:root[data-theme="dark"] .product-card p,:root[data-theme="dark"] .hero-description,:root[data-theme="dark"] .section-heading p,:root[data-theme="dark"] .about-copy p,:root[data-theme="dark"] .contact-page-intro p,:root[data-theme="dark"] .footer-brand p,:root[data-theme="dark"] .enquiry-form-heading p,:root[data-theme="dark"] .enquiry-privacy-note{color:var(--muted)}
+:root[data-theme="dark"] .inner-page,:root[data-theme="dark"] .inner-content-section{background:var(--page);color:var(--text)}
+:root[data-theme="dark"] .inner-hero{background:linear-gradient(125deg,#111722,#171e2c)}
+:root[data-theme="dark"] .inner-hero-grid{opacity:.12}
+:root[data-theme="dark"] .inner-hero p,:root[data-theme="dark"] .detail-copy p,:root[data-theme="dark"] .detail-list span{color:var(--muted)}
+:root[data-theme="dark"] .enquiry-form-grid input,:root[data-theme="dark"] .enquiry-form-grid select,:root[data-theme="dark"] .enquiry-form-grid textarea{background:#111722;border-color:var(--border);color:var(--text)}
+:root[data-theme="dark"] .marketplace-teaser{color:var(--text)}
+:root[data-theme="dark"] .marketplace-teaser-platforms{border-color:var(--border)}
+:root[data-theme="dark"] .marketplace-teaser-platforms a{border-color:var(--border)}
+:root[data-theme="dark"] .marketplace-teaser-copy>p{color:var(--muted)}
+@media(max-width:900px){.footer-main{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.nav-wrap>.theme-toggle{margin-left:auto}.theme-toggle{padding:8px}.theme-toggle-label{display:none}.footer-main{grid-template-columns:1fr 1fr;gap:28px 18px}}
+@media(prefers-reduced-motion:reduce){html,body{transition:none}}
+
+
+/* Dark theme completion and consistent shared footer */
+:root[data-theme="dark"] .section,:root[data-theme="dark"] .inner-content-section,:root[data-theme="dark"] .about-section,:root[data-theme="dark"] .process-section,:root[data-theme="dark"] .contact-section{background:var(--page);color:var(--text)}
+:root[data-theme="dark"] .section-heading h2,:root[data-theme="dark"] .about-copy h2,:root[data-theme="dark"] .process-section h2,:root[data-theme="dark"] .contact-page-intro h2,:root[data-theme="dark"] .detail-copy h2{color:var(--text)}
+:root[data-theme="dark"] .service-card,:root[data-theme="dark"] .product-card,:root[data-theme="dark"] .project-card,:root[data-theme="dark"] .contact-page-card,:root[data-theme="dark"] .project-enquiry-form,:root[data-theme="dark"] .detail-list>div,:root[data-theme="dark"] .about-visual{background:var(--surface);border-color:var(--border);color:var(--text)}
+:root[data-theme="dark"] .service-card p,:root[data-theme="dark"] .product-card p,:root[data-theme="dark"] .project-card p,:root[data-theme="dark"] .section-heading p,:root[data-theme="dark"] .detail-copy p,:root[data-theme="dark"] .about-copy p,:root[data-theme="dark"] .contact-page-intro p{color:var(--muted)}
+:root[data-theme="dark"] .service-icon,:root[data-theme="dark"] .product-icon{background:#202a3a;color:#ffad70}
+:root[data-theme="dark"] .inner-bottom-cta{background:#202a3a}
+:root[data-theme="dark"] .legal-document .legal-disclaimer{background:#202a3a;border-color:var(--orange)}
+:root[data-theme="dark"] .contact-brief-points{background:#171d29;border-color:var(--border)}
+:root[data-theme="dark"] .footer-bottom{border-color:var(--border)}
+@media(max-width:760px){.footer-main{grid-template-columns:1fr 1fr;gap:28px 18px}.footer-brand{grid-column:1/-1}}

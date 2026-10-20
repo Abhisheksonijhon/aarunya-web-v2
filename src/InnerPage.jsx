@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ThemeToggle from './ThemeToggle.jsx';
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
   BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
@@ -128,6 +129,7 @@ function InnerHeader() {
       <header className="header">
         <div className="container nav-wrap">
           <InnerBrand />
+          <ThemeToggle />
 
           <button
             className="menu-toggle"
@@ -148,6 +150,8 @@ function InnerHeader() {
             <a href="/work" onClick={closeMenu}>Work</a>
             <a href="/about" onClick={closeMenu}>About</a>
             <a href="/contact" onClick={closeMenu}>Contact</a>
+            <a href="/marketplace-seller-services" onClick={closeMenu}>Seller support</a>
+            <a href="/blog" onClick={closeMenu}>Insights</a>
             <a className="nav-cta" href="/contact" onClick={closeMenu}>
               Start a project <ArrowUpRight size={16} />
             </a>

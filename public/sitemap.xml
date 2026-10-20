@@ -84,4 +84,32 @@
     <loc>https://aarunyawebsolutions.com/terms-of-service</loc>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/marketplace-seller-services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/amazon-seller-services</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/flipkart-seller-services</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/meesho-seller-services</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/blog</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/blog/marketplace-seller-registration-checklist-india</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aarunyawebsolutions.com/blog/product-listing-readiness-checklist</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>

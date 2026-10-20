@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import InnerPage from './InnerPage.jsx';
+import MarketplacePages from './MarketplacePages.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X,
   Code2, Smartphone, Palette, Megaphone, BrainCircuit,
@@ -171,6 +173,7 @@ function HomePage() {
       <header className="header">
         <div className="container nav-wrap">
           <Brand />
+          <ThemeToggle />
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -186,6 +189,8 @@ function HomePage() {
             <a href="/work" onClick={closeMenu}>Work</a>
             <a href="/about" onClick={closeMenu}>About</a>
             <a href="/contact" onClick={closeMenu}>Contact</a>
+            <a href="/marketplace-seller-services" onClick={closeMenu}>Seller support</a>
+            <a href="/blog" onClick={closeMenu}>Insights</a>
             <a className="nav-cta" href="/contact" onClick={closeMenu}>
               Start a project <ArrowUpRight size={16} />
             </a>
@@ -257,6 +262,23 @@ function HomePage() {
                   </a>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="marketplace-teaser-section section" id="marketplace-seller-support">
+          <div className="container marketplace-teaser">
+            <div className="marketplace-teaser-copy">
+              <div className="eyebrow"><span className="eyebrow-line" /> MARKETPLACE SELLER SUPPORT</div>
+              <h2>Ready to sell online?<br /><span className="orange-text">Start with a clear plan.</span></h2>
+              <p>Get practical help preparing for Amazon, Flipkart and Meesho seller onboarding, product catalogues and launch tasks. Approval remains with each marketplace.</p>
+              <a className="button button-primary" href="/marketplace-seller-services">Explore seller services <ArrowRight size={17} /></a>
+            </div>
+            <div className="marketplace-teaser-platforms">
+              <a href="/amazon-seller-services"><span>01</span><strong>Amazon seller support</strong><ArrowUpRight size={18}/></a>
+              <a href="/flipkart-seller-services"><span>02</span><strong>Flipkart seller support</strong><ArrowUpRight size={18}/></a>
+              <a href="/meesho-seller-services"><span>03</span><strong>Meesho seller support</strong><ArrowUpRight size={18}/></a>
+              <a href="/blog"><span>04</span><strong>Seller guides & insights</strong><ArrowUpRight size={18}/></a>
             </div>
           </div>
         </section>
@@ -410,6 +432,8 @@ function App({ initialPath } = {}) {
     (typeof window !== 'undefined' ? window.location.pathname : '/');
   const path = currentPath.replace(/\/+$/, '') || '/';
 
+  const marketplacePaths = ['/marketplace-seller-services', '/amazon-seller-services', '/flipkart-seller-services', '/meesho-seller-services', '/blog', '/blog/marketplace-seller-registration-checklist-india', '/blog/product-listing-readiness-checklist'];
+  if (marketplacePaths.includes(path)) return <MarketplacePages path={path} />;
   return path === '/' ? <HomePage /> : <InnerPage path={path} />;
 }
 
