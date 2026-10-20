@@ -706,22 +706,10 @@ export default function InnerPage({ path }) {
             <ProjectEnquiryForm />
 
             <div className="contact-page-card">
-              <div>
-                <span className="contact-label">EMAIL</span>
-                <a href="mailto:info@aarunyawebsolutions.com">info@aarunyawebsolutions.com</a>
-              </div>
-              <div>
-                <span className="contact-label">PHONE</span>
-                <a href="tel:+918770607203">+91 8770607203</a>
-              </div>
-              <div>
-                <span className="contact-label">LOCATION</span>
-                <span>Panna, Madhya Pradesh, India</span>
-              </div>
-              <div>
-                <span className="contact-label">WHAT WE DO</span>
-                <span>Websites · Software · AI automation · Digital growth</span>
-              </div>
+              <div className="contact-detail-item"><span className="contact-label">EMAIL</span><a href="mailto:info@aarunyawebsolutions.com">info@aarunyawebsolutions.com</a></div>
+              <div className="contact-detail-item"><span className="contact-label">PHONE & WHATSAPP</span><a href="tel:+918770607203">+91 87706 07203</a></div>
+              <div className="contact-detail-item"><span className="contact-label">LOCATION</span><span>Panna, Madhya Pradesh, India</span></div>
+              <div className="contact-detail-item"><span className="contact-label">WHAT WE DO</span><span>Websites · Software · AI automation · Digital growth</span></div>
             </div>
           </div>
         </section>
