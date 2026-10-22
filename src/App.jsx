@@ -261,6 +261,87 @@ function HomePage() {
           </div>
         </section>
 
+        <section className="intro-band section" id="studio">
+          <div className="container intro-band-inner">
+            <p className="intro-kicker">AARUNYA WEB SOLUTIONS · DIGITAL STUDIO</p>
+            <h2>One team for the way your business <span className="orange-text">works, looks and grows.</span></h2>
+            <p className="intro-summary">We connect strategy, design and technology to build useful digital experiences—from your first website to the systems that help your business run better.</p>
+          </div>
+        </section>
+
+        <section className="work-section section" id="work">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <div className="eyebrow"><span className="eyebrow-line" /> SELECTED WORK & PRODUCTS</div>
+                <h2>Ideas made <span className="orange-text">useful.</span></h2>
+              </div>
+              <div className="work-heading-side">
+                <p>A closer look at digital products, websites and platforms we are building.</p>
+                <a className="text-link" href="/work">Explore work <ArrowUpRight size={17} /></a>
+              </div>
+            </div>
+            <div className="work-rail" aria-label="Selected projects">
+              <article className="work-card work-card-featured">
+                <div className="work-art work-art-billzen">
+                  <span className="work-art-label">BUSINESS SOFTWARE / SAAS</span>
+                  <div className="mock-dashboard">
+                    <div className="mock-sidebar"><b>B.</b><i /><i /><i /><i /></div>
+                    <div className="mock-main"><span className="mock-line mock-line-short" /><div className="mock-stats"><i /><i /><i /></div><div className="mock-chart"><b /><b /><b /><b /><b /><b /><b /></div></div>
+                  </div>
+                  <span className="work-orbit" />
+                </div>
+                <div className="work-card-copy"><span className="work-category">SaaS · Billing & inventory</span><h3>BillZen</h3><p>A simpler way for small businesses to manage billing, stock and everyday operations.</p><a href="/products/billzen">Explore BillZen <ArrowUpRight size={16} /></a></div>
+              </article>
+              <article className="work-card">
+                <div className="work-art work-art-education">
+                  <span className="work-art-label">EDUCATION / WEB</span>
+                  <div className="mock-browser"><div className="mock-browser-top"><i /><i /><i /></div><div className="mock-school-hero"><b>Learning<br/>for tomorrow.</b><span /></div><div className="mock-school-cards"><i /><i /><i /></div></div>
+                </div>
+                <div className="work-card-copy"><span className="work-category">Education · Website experience</span><h3>School Website Refresh</h3><p>A clearer digital experience for school information, academics, activities and admissions.</p><a href="/work">View project approach <ArrowUpRight size={16} /></a></div>
+              </article>
+              <article className="work-card">
+                <div className="work-art work-art-omni">
+                  <span className="work-art-label">DISCOVERY / LEAD GENERATION</span>
+                  <div className="omni-orbit"><span>O</span><i /><i /><i /><i /></div>
+                  <div className="omni-chip omni-chip-one">Find opportunities</div><div className="omni-chip omni-chip-two">Organise leads</div>
+                </div>
+                <div className="work-card-copy"><span className="work-category">Platform concept</span><h3>Omni Lead</h3><p>A developing platform concept for business discovery, lead generation and opportunity workflows.</p><a href="/products/omni-lead">Explore Omni Lead <ArrowUpRight size={16} /></a></div>
+              </article>
+              <article className="work-card">
+                <div className="work-art work-art-arthazen">
+                  <span className="work-art-label">FINANCE / AI CONCEPT</span>
+                  <div className="artha-symbol">A<span>z</span></div><div className="artha-lines"><i /><i /><i /></div>
+                </div>
+                <div className="work-card-copy"><span className="work-category">Product concept</span><h3>ArthaZen</h3><p>An evolving concept for AI-assisted tax, finance and business compliance workflows.</p><a href="/products/arthazen">Explore ArthaZen <ArrowUpRight size={16} /></a></div>
+              </article>
+            </div>
+            <div className="work-rail-note"><span>01 — 04</span><span>Scroll or swipe to explore projects <ArrowRight size={14} /></span></div>
+          </div>
+        </section>
+
+        <section className="industries-section section" id="industries">
+          <div className="container industries-inner">
+            <div className="industries-intro"><div className="eyebrow"><span className="eyebrow-line" /> INDUSTRIES & USE CASES</div><h2>Different industries.<br/><span className="orange-text">Purpose-built solutions.</span></h2></div>
+            <div className="industry-list">
+              <span>Education & schools</span><span>Retail & trading</span><span>Professional services</span><span>Hospitality</span><span>Startups & SaaS</span><span>Local businesses</span><span>Operations & teams</span><span>Growing brands</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="case-section section" id="case-studies">
+          <div className="container">
+            <div className="section-heading">
+              <div><div className="eyebrow"><span className="eyebrow-line" /> HOW WE SOLVE PROBLEMS</div><h2>Clear thinking.<br/><span className="orange-text">Useful outcomes.</span></h2></div>
+              <p>Good digital work starts with the problem, not a preset template. Here is how we frame selected work.</p>
+            </div>
+            <div className="case-grid">
+              <article className="case-card"><span className="case-number">01 / PRODUCT</span><h3>Making everyday billing easier</h3><div className="case-row"><span>Challenge</span><p>Small businesses need a more organised way to handle billing, inventory and daily records.</p></div><div className="case-row"><span>Approach</span><p>Bring core workflows into one focused product experience with clear navigation and practical tools.</p></div><div className="case-row"><span>Direction</span><p>BillZen continues to evolve around usability, reliability and business needs.</p></div><a href="/products/billzen">Explore BillZen <ArrowUpRight size={16}/></a></article>
+              <article className="case-card"><span className="case-number">02 / EDUCATION</span><h3>Making school information easier to find</h3><div className="case-row"><span>Challenge</span><p>Families need a clear way to navigate academics, campus life, facilities and admissions information.</p></div><div className="case-row"><span>Approach</span><p>Organise content into a consistent page system with responsive layouts and clearer navigation.</p></div><div className="case-row"><span>Direction</span><p>A more cohesive website foundation designed for mobile visitors and ongoing updates.</p></div><a href="/work">Explore our work <ArrowUpRight size={16}/></a></article>
+            </div>
+          </div>
+        </section>
+
         <section className="process-section section" id="approach">
           <div className="container">
             <div className="section-heading">
@@ -346,6 +427,19 @@ function HomePage() {
                 <div><CheckCircle2 size={18} /><span>Technology designed to evolve with you</span></div>
               </div>
               <a href="/contact" className="button button-dark">Let's work together <ArrowRight size={17} /></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="faq-section section" id="faq">
+          <div className="container faq-layout">
+            <div className="faq-intro"><div className="eyebrow"><span className="eyebrow-line" /> GOOD QUESTIONS</div><h2>Before we <span className="orange-text">get building.</span></h2><p>A few useful answers about working with Aarunya Web Solutions.</p><a className="text-link" href="/contact">Have another question? Let's talk <ArrowUpRight size={16}/></a></div>
+            <div className="faq-list">
+              <details open><summary>What can Aarunya help my business build?<span>+</span></summary><p>We work across website development, mobile apps, UI/UX, e-commerce, custom software, CRM-style tools, SEO and practical AI automation.</p></details>
+              <details><summary>Can you improve an existing website?<span>+</span></summary><p>Yes. We can review the current structure, user experience, mobile behaviour, performance and search foundations before recommending improvements.</p></details>
+              <details><summary>Do you work with businesses outside Madhya Pradesh?<span>+</span></summary><p>Yes. Aarunya is based in Panna, Madhya Pradesh, and can collaborate remotely with businesses in other parts of India and internationally.</p></details>
+              <details><summary>How does a project usually begin?<span>+</span></summary><p>We start by understanding your goals, audience, timeline and constraints, then agree on a practical scope and next steps.</p></details>
+              <details><summary>Can you maintain or improve the solution after launch?<span>+</span></summary><p>Support and ongoing improvements can be discussed based on the project scope and the type of solution being delivered.</p></details>
             </div>
           </div>
         </section>
