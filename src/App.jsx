@@ -161,7 +161,7 @@ function HomePage() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <>
+    <div className="homepage-shell">
       <div className="announcement">
         <span className="announcement-dot" />
         Digital solutions for businesses ready to grow.
@@ -495,7 +495,7 @@ function HomePage() {
           <span>Built with purpose. Powered by ideas.</span>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
