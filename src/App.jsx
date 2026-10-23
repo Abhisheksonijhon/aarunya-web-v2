@@ -3,7 +3,7 @@ import InnerPage from './InnerPage.jsx';
 import {
   ArrowDownRight, ArrowRight, ArrowUpRight, Menu, X,
   Code2, Smartphone, Palette, Megaphone, BrainCircuit,
-  Workflow, ReceiptText, Users, Calculator, CheckCircle2
+  Workflow, ReceiptText, Users, Calculator, CheckCircle2, MessageCircle
 } from 'lucide-react';
 
 const services = [
@@ -84,60 +84,138 @@ const products = [
   }
 ];
 
-function Hero3D() {
-  const stageRef = useRef(null);
+function HeroWallpaper() {
+  return (
+    <div className="hero-mesh" aria-hidden="true">
+      <div className="blob blob-one" />
+      <div className="blob blob-two" />
+      <div className="blob blob-three" />
+    </div>
+  );
+}
+
+function HeroWebGL() {
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const stage = stageRef.current;
-    const art = stage?.parentElement;
-    if (!stage || !art) return;
+    const canvas = canvasRef.current;
+    const art = canvas?.parentElement;
+    if (!canvas || !art) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
-    if (reduceMotion || coarsePointer) return;
 
-    const onMove = (e) => {
-      const rect = art.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width - 0.5;
-      const py = (e.clientY - rect.top) / rect.height - 0.5;
-      stage.style.transform = `rotateY(${(px * 16).toFixed(2)}deg) rotateX(${(py * -12).toFixed(2)}deg)`;
-    };
-    const onLeave = () => { stage.style.transform = ''; };
+    let renderer, scene, camera, group, outer, inner, points, raf;
+    let disposed = false;
 
-    art.addEventListener('pointermove', onMove);
-    art.addEventListener('pointerleave', onLeave);
+    import('three').then((THREE) => {
+      if (disposed) return;
+
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 0, 9);
+
+      group = new THREE.Group();
+      scene.add(group);
+
+      function wireMesh(geo, color) {
+        const mat = new THREE.MeshBasicMaterial({ color, wireframe: true, transparent: true, opacity: 0.65 });
+        return new THREE.Mesh(geo, mat);
+      }
+      outer = wireMesh(new THREE.IcosahedronGeometry(2.1, 1), 0xf47721);
+      inner = wireMesh(new THREE.IcosahedronGeometry(1.25, 0), 0x4da3ff);
+      group.add(outer, inner);
+
+      const count = 140;
+      const positions = new Float32Array(count * 3);
+      for (let i = 0; i < count; i++) {
+        const r = 3.3 + Math.random() * 2;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(Math.random() * 2 - 1);
+        positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        positions[i * 3 + 2] = r * Math.cos(phi);
+      }
+      const pGeo = new THREE.BufferGeometry();
+      pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const pMat = new THREE.PointsMaterial({ color: 0xffd9b8, size: 0.05, transparent: true, opacity: 0.85 });
+      points = new THREE.Points(pGeo, pMat);
+      group.add(points);
+
+      let targetRX = 0.25, targetRY = 0, curRX = 0.25, curRY = 0;
+
+      function resize() {
+        const w = art.clientWidth, h = art.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / (h || 1);
+        camera.updateProjectionMatrix();
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      let onMove;
+      if (!coarsePointer && !reduceMotion) {
+        onMove = (e) => {
+          const rect = art.getBoundingClientRect();
+          targetRY = ((e.clientX - rect.left) / rect.width - 0.5) * 0.7;
+          targetRX = 0.25 + ((e.clientY - rect.top) / rect.height - 0.5) * -0.4;
+        };
+        art.addEventListener('pointermove', onMove);
+      }
+
+      const clock = new THREE.Clock();
+      function frame() {
+        const t = clock.getElapsedTime();
+        curRX += (targetRX - curRX) * 0.04;
+        curRY += (targetRY - curRY) * 0.04;
+        group.rotation.x = curRX + Math.sin(t * 0.15) * 0.05;
+        group.rotation.y = curRY + t * 0.08;
+        outer.rotation.y -= 0.0015;
+        inner.rotation.x += 0.002;
+        points.rotation.y += 0.0009;
+        renderer.render(scene, camera);
+        raf = requestAnimationFrame(frame);
+      }
+      if (reduceMotion) {
+        renderer.render(scene, camera);
+      } else {
+        raf = requestAnimationFrame(frame);
+      }
+
+      canvas._cleanup = () => {
+        window.removeEventListener('resize', resize);
+        if (onMove) art.removeEventListener('pointermove', onMove);
+        if (raf) cancelAnimationFrame(raf);
+        outer.geometry.dispose(); outer.material.dispose();
+        inner.geometry.dispose(); inner.material.dispose();
+        pGeo.dispose(); pMat.dispose();
+        renderer.dispose();
+      };
+    });
+
     return () => {
-      art.removeEventListener('pointermove', onMove);
-      art.removeEventListener('pointerleave', onLeave);
+      disposed = true;
+      if (canvas._cleanup) canvas._cleanup();
     };
   }, []);
 
   return (
-    <div className="hero-art" aria-label="Abstract 3D technology illustration">
-      <div className="hero-stage" ref={stageRef}>
-        <div className="hero-scene">
-          <div className="scene-ring" />
-          <div className="scene-ring scene-ring-two" />
-          <div className="art-center scene-core">
-            <img src="/logo-icon.png" alt="" className="art-logo" />
-            <span className="art-label">THINK. BUILD. GROW.</span>
-          </div>
-          <div className="float-card scene-node node-one">
-            <span className="float-icon orange-icon"><Code2 size={18} /></span>
-            <span><strong>Web & Software</strong><small>Built to perform</small></span>
-          </div>
-          <div className="float-card scene-node node-two">
-            <span className="float-icon blue-icon"><BrainCircuit size={18} /></span>
-            <span><strong>AI & Automation</strong><small>Smarter workflows</small></span>
-          </div>
-          <div className="float-card scene-node node-three">
-            <span className="float-icon dark-icon"><Megaphone size={16} /></span>
-            <span><strong>Digital Growth</strong><small>Built to scale</small></span>
-          </div>
-          <div className="scene-dot dot-one" />
-          <div className="scene-dot dot-two" />
-          <div className="scene-dot dot-three" />
-        </div>
+    <div className="hero-art" aria-label="Interactive 3D technology illustration">
+      <canvas ref={canvasRef} className="hero-canvas" />
+      <div className="float-card tag-one">
+        <span className="float-icon orange-icon"><Code2 size={18} /></span>
+        <span><strong>Web & Software</strong><small>Built to perform</small></span>
+      </div>
+      <div className="float-card tag-two">
+        <span className="float-icon blue-icon"><BrainCircuit size={18} /></span>
+        <span><strong>AI & Automation</strong><small>Smarter workflows</small></span>
+      </div>
+      <div className="float-card tag-three">
+        <span className="float-icon dark-icon"><Megaphone size={16} /></span>
+        <span><strong>Digital Growth</strong><small>Built to scale</small></span>
       </div>
     </div>
   );
@@ -171,6 +249,15 @@ function HomePage() {
       <header className="header">
         <div className="container nav-wrap">
           <Brand />
+          <a
+            className="whatsapp-cta"
+            href="https://wa.me/918770607203?text=Hi%20Aarunya%2C%20I%27d%20like%20to%20talk%20about%20a%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+          >
+            <MessageCircle size={18} />
+          </a>
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -195,7 +282,7 @@ function HomePage() {
 
       <main>
         <section className="hero" id="home">
-          <div className="hero-grid" />
+          <HeroWallpaper />
           <div className="container hero-inner">
             <div className="hero-copy">
               <div className="eyebrow">
@@ -224,12 +311,19 @@ function HomePage() {
               </div>
             </div>
 
-            <Hero3D />
+            <HeroWebGL />
           </div>
-          <div className="container hero-bottom">
-            <span>WEB & SOFTWARE</span><i />
-            <span>AI & AUTOMATION</span><i />
-            <span>DIGITAL GROWTH</span>
+          <div className="marquee" aria-hidden="true">
+            <div className="marquee-track">
+              {Array(2).fill(0).map((_, i) => (
+                <span className="marquee-set" key={i}>
+                  <b>WEB & SOFTWARE</b><i />
+                  <b>AI & AUTOMATION</b><i />
+                  <b>DIGITAL GROWTH</b><i />
+                  <b>BUSINESS SOFTWARE</b><i />
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -405,12 +499,40 @@ function HomePage() {
   );
 }
 
+function Preloader() {
+  const [state, setState] = useState('show');
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let seen = false;
+    try { seen = sessionStorage.getItem('aw-loaded') === '1'; } catch (e) {}
+    if (seen || reduceMotion) { setState('hidden'); return; }
+    try { sessionStorage.setItem('aw-loaded', '1'); } catch (e) {}
+    const t1 = setTimeout(() => setState('fade'), 550);
+    const t2 = setTimeout(() => setState('hidden'), 900);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  if (state === 'hidden') return null;
+  return (
+    <div className={state === 'fade' ? 'preloader preloader-fade' : 'preloader'} role="presentation" aria-hidden="true">
+      <img src="/logo-icon.png" alt="" className="preloader-logo" />
+    </div>
+  );
+}
+
 function App({ initialPath } = {}) {
   const currentPath = initialPath ??
     (typeof window !== 'undefined' ? window.location.pathname : '/');
   const path = currentPath.replace(/\/+$/, '') || '/';
 
-  return path === '/' ? <HomePage /> : <InnerPage path={path} />;
+  return (
+    <>
+      <Preloader />
+      {path === '/' ? <HomePage /> : <InnerPage path={path} />}
+    </>
+  );
 }
 
 export default App;
+
