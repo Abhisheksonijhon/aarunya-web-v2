@@ -114,6 +114,15 @@ const pages = [
   }
 ];
 
+import { publishedWorks } from '../src/data/work.js';
+for (const w of publishedWorks) {
+  pages.push({
+    path: '/work/' + w.slug,
+    title: w.title + ' | Aarunya Web Solutions',
+    description: w.summary
+  });
+}
+
 function replaceMeta(html, selector, replacement) {
   const expression = new RegExp(
     '<meta(?=[^>]*' + selector + ')[^>]*>',
@@ -225,6 +234,13 @@ try {
     );
 
     console.log('Prerendered:', page.path);
+  }
+
+  if (publishedWorks.length) {
+    const smPath = path.resolve('dist/sitemap.xml');
+    let sm = await readFile(smPath, 'utf8');
+    const add = publishedWorks.map(w => '  <url><loc>' + origin + '/work/' + w.slug + '</loc></url>').join('\n');
+    await writeFile(smPath, sm.replace('</urlset>', add + '\n</urlset>'), 'utf8');
   }
 
   const notFoundMarkup = renderToString(

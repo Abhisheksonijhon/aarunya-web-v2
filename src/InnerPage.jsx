@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { WorkGrid, WorkCaseStudy, Testimonials } from './WorkParts.jsx';
+import { works } from './data/work.js';
 import {
   ArrowRight, ArrowUpRight, CheckCircle2, Code2, Smartphone,
   BrainCircuit, Workflow, Palette, Megaphone, ReceiptText,
@@ -352,6 +354,7 @@ export default function InnerPage({ path }) {
   const service = section === 'services' ? services.find(x => x.slug === slug) : null;
   const product = section === 'products' ? products.find(x => x.slug === slug) : null;
   const isWork = path === "/work";
+  const workItem = section === 'work' && slug && slug !== 'billzen' ? works.find(x => x.slug === slug && x.published) : null;
   const isBillzenCaseStudy = path === "/work/billzen";
   const isServices = path === '/services';
   const isProducts = path === '/products';
@@ -388,6 +391,10 @@ export default function InnerPage({ path }) {
     eyebrow = "OUR WORK";
     title = "Digital products shaped around practical problems.";
     description = "Explore products and technology concepts being developed by Aarunya Web Solutions.";
+  } else if (workItem) {
+    eyebrow = workItem.category.toUpperCase();
+    title = workItem.title;
+    description = workItem.summary;
   } else if (isBillzenCaseStudy) {
     eyebrow = "PROJECT CASE STUDY";
     title = "BillZen: billing and business management software.";
@@ -422,13 +429,14 @@ export default function InnerPage({ path }) {
     window.scrollTo(0, 0);
   }, [path]);
 
-  const notFound = !service && !product && !isServices && !isProducts && !isWork && !isBillzenCaseStudy && !isAbout && !isContact && !isPannaLanding && !isPrivacy && !isTerms;
+  const notFound = !service && !product && !isServices && !isProducts && !isWork && !workItem && !isBillzenCaseStudy && !isAbout && !isContact && !isPannaLanding && !isPrivacy && !isTerms;
 
   return (
     <>
       <InnerHeader />
       <main className="inner-page">
       <section className="inner-hero">
+        <div className="hero-mesh inner-mesh" aria-hidden="true"><span className="blob blob-one" /><span className="blob blob-two" /></div>
         <div className="inner-hero-grid" />
         <div className="container inner-hero-content">
           <div className="eyebrow"><span className="eyebrow-line" /> {eyebrow}</div>
@@ -572,9 +580,13 @@ export default function InnerPage({ path }) {
               <p>We also work with businesses on websites, e-commerce, CRM dashboards and custom software.</p>
               <a className="button button-primary" href="/contact">Discuss your project <ArrowRight size={17} /></a>
             </div>
+            <WorkGrid />
+            <Testimonials />
           </div>
         </section>
       )}
+
+      {workItem && <WorkCaseStudy w={workItem} />}
 
       {isBillzenCaseStudy && (
         <section className="section inner-content-section">
